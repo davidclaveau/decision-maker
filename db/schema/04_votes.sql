@@ -3,5 +3,5 @@ CREATE TABLE votes (
   id SERIAL PRIMARY KEY NOT NULL,
   rank INTEGER NOT NULL,
   option_id INTEGER REFERENCES options(id) ON DELETE CASCADE,
-  name VARCHAR(255)
+  voter_name VARCHAR(255)
 );
