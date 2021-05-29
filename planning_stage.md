@@ -47,6 +47,18 @@ mixture of horizontal and vertical approach
 ​
 ### Saturday:
 
+#### Routes List
+* Users route: prefix(users)  ----David
+/index              get  --- page for creating a poll
+/index              post --- admin send polls
+/:user_id           get  --- page for all polls created for a logged in user
+
+* Polls route: prefix(polls)
+/:poll_id               get  --- page for a specific poll (Link we send to voters)   ---Feng
+/:poll_id               post --- submit the vote  ---Feng
+/:poll_id/guest_name    get ---for user to see one submission ---Zio
+/:poll_id/result        get --- final count for votes ---Zio
+
 ### Sunday:
 
 ### Monday:
