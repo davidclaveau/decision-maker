@@ -32,7 +32,7 @@ VALUES ('The Hunger Games','Adapted from books which rely on internal monologue,
 
 -- 3
 INSERT INTO options (title, description, poll_id)
-VALUES (`McDonald's`,`McDonald's Corporation is an American multinational fast food company, founded in 1940 as a restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, United States.`, 3);
+VALUES ('McDonald''s','McDonald''s Corporation is an American multinational fast food company, founded in 1940 as a restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, United States.', 3);
 
 INSERT INTO options (title, description, poll_id)
 VALUES ('Fresh Slice Pizza','Freshslice Pizza is a Canadian pizza chain and franchise. Founded by Ray Russell in 1999, Freshslice Pizza has grown from a family-run business to a chain of over 70 restaurants across British Columbia. They are known for their multigrain crust and their pizza by the slice.', 3);
