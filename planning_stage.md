@@ -54,10 +54,10 @@ mixture of horizontal and vertical approach
 /:user_id           get  --- page for all polls created for a logged in user
 
 * Polls route: prefix(polls)
-/:poll_id               get  --- page for a specific poll (Link we send to voters)   ---Feng
-/:poll_id               post --- submit the vote  ---Feng
-/:poll_id/guest_name    get ---for user to see one submission ---Zio
-/:poll_id/result        get --- final count for votes ---Zio
+polls/:poll_id               get  --- page for a specific poll (Link we send to voters)   ---Feng
+polls/:poll_id               post --- submit the vote  ---Feng
+polls/:poll_id/guest_name    get ---for user to see one submission ---Zio
+polls/:poll_id/result        get --- final count for votes ---Zio
 
 ### Sunday:
 
