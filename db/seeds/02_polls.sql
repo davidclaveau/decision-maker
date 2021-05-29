@@ -5,5 +5,3 @@ INSERT INTO polls (name, owner_id) VALUES ('Which restaurant should we go to?', 
 INSERT INTO polls (name, owner_id) VALUES ('What''s your favourite number?', 2);
 INSERT INTO polls (name, owner_id) VALUES ('Who is your favourite hockey team?', 2);
 INSERT INTO polls (name, owner_id) VALUES ('Who''s your favourite actor?', 2);
-INSERT INTO polls (name, owner_id) VALUES ('When should we meet up to code?', 2);
-INSERT INTO polls (name, owner_id) VALUES ('What''s the best place on earth?', 2);
