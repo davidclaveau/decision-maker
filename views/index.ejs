@@ -12,6 +12,44 @@
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <h1>This will be where users can create polls</h1>
+
+    <form action="/index" method="POST">
+      CREATE A POLL:
+      <input type="text" name="pollName" id="poll-name" />
+      <br>
+      Option 1:
+      <input type="text" name="option1" />
+      <br>
+      Description 1:
+      <input type="text" name="description1" />
+      <button type="submit">Submit</button>
+      <br>
+    </form>
+
+    <!-- This could have a button to "add an option"
+         so the user can add options as they go along -
+         or they have an option to choose up to 10...
+         for now it's one -->
+
+    <!--
+    <form action="/index" method="POST">
+      OPTION 2:
+      <input type="text" name="option2" id="poll-name" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <form action="/index" method="POST">
+      OPTION 3:
+      <input type="text" name="option3" id="poll-name" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <form action="/index" method="POST">
+      OPTION 4:
+      <input type="text" name="option4" id="poll-name" />
+      <button type="submit">Submit</button>
+    </form> -->
+
   </body>
 </html>
