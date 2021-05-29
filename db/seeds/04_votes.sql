@@ -1,3 +1,81 @@
+-- First sunbission for poll 2
+INSERT INTO votes (rank,option_id)
+VALUES (1,5);
+
+INSERT INTO votes (rank,option_id)
+VALUES (2,7);
+
+INSERT INTO votes (rank,option_id)
+VALUES (3,9);
+
+INSERT INTO votes (rank,option_id)
+VALUES (4,4);
+
+INSERT INTO votes (rank,option_id)
+VALUES (5,8);
+
+INSERT INTO votes (rank,option_id)
+VALUES (6,6);
+
+-- Second submission for poll 2
+INSERT INTO votes (rank,option_id)
+VALUES (1,4);
+
+INSERT INTO votes (rank,option_id)
+VALUES (2,9);
+
+INSERT INTO votes (rank,option_id)
+VALUES (3,5);
+
+INSERT INTO votes (rank,option_id)
+VALUES (4,6);
+
+INSERT INTO votes (rank,option_id)
+VALUES (5,8);
+
+INSERT INTO votes (rank,option_id)
+VALUES (6,7);
+
+
+-- Third submission for poll 2
+INSERT INTO votes (rank,option_id)
+VALUES (1,8);
+
+INSERT INTO votes (rank,option_id)
+VALUES (2,7);
+
+INSERT INTO votes (rank,option_id)
+VALUES (3,5);
+
+INSERT INTO votes (rank,option_id)
+VALUES (4,6);
+
+INSERT INTO votes (rank,option_id)
+VALUES (5,4);
+
+INSERT INTO votes (rank,option_id)
+VALUES (6,9);
+
+-- Fourth submission for poll 2
+
+INSERT INTO votes (rank,option_id)
+VALUES (1,8);
+
+INSERT INTO votes (rank,option_id)
+VALUES (2,9);
+
+INSERT INTO votes (rank,option_id)
+VALUES (3,7);
+
+INSERT INTO votes (rank,option_id)
+VALUES (4,5);
+
+INSERT INTO votes (rank,option_id)
+VALUES (5,6);
+
+INSERT INTO votes (rank,option_id)
+VALUES (6,4);
+
 -- fav num user Jerry
 INSERT INTO votes (rank, option_id, voter_name)
 VALUES (1, 12, 'Jerry');
