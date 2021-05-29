@@ -13,7 +13,14 @@ const userQueries = require('../lib/user-queries');
 router.get('/:id', (req, res) => {
   userQueries.getUserById(req.params.id)
     .then(user => {
-      res.json(user);
+      const name = user[0].user_name;
+      const polls = [];
+      for (const obj of user) {
+        polls.push(obj['poll_name']);
+      }
+
+      templateVars = { name, polls }
+      res.render("users.ejs", templateVars);
     })
     .catch(err => {
       console.log("Error:", err)

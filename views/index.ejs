@@ -9,47 +9,49 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/index-add-option.js"></script>
   </head>
+
+  <%- include('partials/_header') %>
 
   <body>
     <h1>This will be where users can create polls</h1>
 
-    <form action="/index" method="POST">
-      CREATE A POLL:
-      <input type="text" name="pollName" id="poll-name" />
+  <main>
+    <section><!-- Left side where we create the poll -->
+      <form action="/index" method="POST">
+        CREATE A POLL:
+        <input type="text" name="pollName" id="poll-name" />
+
+        <container class ="options">
+
+        </container>
+
+        <button type="submit">Send My Poll</button>
+      </form>
+    </section>
+
+    <section><!-- Right side where we add the options -->
       <br>
-      Option 1:
-      <input type="text" name="option1" />
+      Input option title:
+      <input type="text" name="option" id="option-input" />
       <br>
-      Description 1:
-      <input type="text" name="description1" />
-      <button type="submit">Submit</button>
+      Input option description:
+      <input type="text" name="description" id="description-input" />
+      <button type="submit" id="add-option">Add Option</button>
       <br>
     </form>
 
     <!-- This could have a button to "add an option"
-         so the user can add options as they go along -
-         or they have an option to choose up to 10...
-         for now it's one -->
+      so the user can add options as they go along -
+      or they have an option to choose up to 10...
+      for now it's one -->
 
-    <!--
-    <form action="/index" method="POST">
-      OPTION 2:
-      <input type="text" name="option2" id="poll-name" />
-      <button type="submit">Submit</button>
-    </form>
+  </main>
 
-    <form action="/index" method="POST">
-      OPTION 3:
-      <input type="text" name="option3" id="poll-name" />
-      <button type="submit">Submit</button>
-    </form>
-
-    <form action="/index" method="POST">
-      OPTION 4:
-      <input type="text" name="option4" id="poll-name" />
-      <button type="submit">Submit</button>
-    </form> -->
+  <br>
+  <br>
+  <%- include('partials/_footer') %>
 
   </body>
 </html>
