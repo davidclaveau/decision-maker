@@ -9,9 +9,49 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/index-add-option.js"></script>
   </head>
 
+  <%- include('partials/_header') %>
+
   <body>
-    <h1>Hello World!</h1>
+    <h1>This will be where users can create polls</h1>
+
+  <main>
+    <section><!-- Left side where we create the poll -->
+      <form action="/index" method="POST">
+        CREATE A POLL:
+        <input type="text" name="pollName" id="poll-name" />
+
+        <container class ="options">
+
+        </container>
+
+        <button type="submit">Send My Poll</button>
+      </form>
+    </section>
+
+    <section><!-- Right side where we add the options -->
+      <br>
+      Input option title:
+      <input type="text" name="option" id="option-input" />
+      <br>
+      Input option description:
+      <input type="text" name="description" id="description-input" />
+      <button type="submit" id="add-option">Add Option</button>
+      <br>
+    </form>
+
+    <!-- This could have a button to "add an option"
+      so the user can add options as they go along -
+      or they have an option to choose up to 10...
+      for now it's one -->
+
+  </main>
+
+  <br>
+  <br>
+  <%- include('partials/_footer') %>
+
   </body>
 </html>
