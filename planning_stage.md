@@ -1,16 +1,41 @@
-# Team 1: Decision Maker
-​
-## Working title: Decision Maker
+# Team 1: 
 
+* Decision Maker
+​
+## Working title: 
+
+* Decision Maker
 ​
 ## User Stories:
-​
+
+​* As a creator, I can create a poll with multiple options, because I want to make votes.
+
+* As a creator, I can send the poll to voters and me, because I need to administrate it and others need to vote .
+
+* As a voter, I can see all the options, because I need to vote.
+
+* As a voter, I can enter my name, if I choose to, because I want the creator knowns whose submit it is.
+
+* As a voter, I can rank the options, because I want to rank my favorite.
+
+* As a voter, I  can submit my option, because I want the creator to receive it. 
+
+* As a creator, I can receive a notification, when a submission is received, because I want to see others'votes and administrate my poll.
 ​
 ## Nouns:
-​
+
+​* creator, poll, options, votes, voters, voter's name.
 ​
 ## Schema:
 
+* 1 ERD
+* 2 Set up Database
+* 3 Simple HTML and CSS desgin
+* 4 Modulize db and routes 
+* 5 Net work connection
+* 6 Implement routers
+* 7 CSS styles
+* 8 Clean code
 ​
 ## Roles:
 
