@@ -7,29 +7,24 @@
 
 const express = require('express');
 const router  = express.Router();
-const pollQueries = require('../lib/poll-queries');
+const userQueries = require('../lib/user-queries');
 
-// GET /api/polls/
-router.get('/', (req, res) => {
-  pollQueries.getPolls()
-    .then(polls => {
-      res.json(polls);
-    })
-    .catch(err => {
-      console.log("What do you want from me? 1", err)
-    });
-});
-
-// GET /api/polls/:id
+// GET /api/users/:id
 router.get('/:id', (req, res) => {
-  pollQueries.getPollById(req.params.id)
-    .then(poll => {
-      res.json(poll);
+  userQueries.getUserById(req.params.id)
+    .then(user => {
+      const name = user[0].user_name;
+      const polls = [];
+      for (const obj of user) {
+        polls.push(obj['poll_name']);
+      }
+
+      templateVars = { name, polls }
+      res.render("users.ejs", templateVars);
     })
     .catch(err => {
-      console.log("What do you want from me? 2", err)
+      console.log("Error:", err)
     });
 });
 
 module.exports = router;
-
