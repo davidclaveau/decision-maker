@@ -3,5 +3,5 @@ CREATE TABLE options (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,
   description TEXT,
-  poll_id INTEGER REFERENCES polls(id) ON CASCADE DELETE
+  poll_id INTEGER REFERENCES polls(id) ON DELETE CASCADE
 );
