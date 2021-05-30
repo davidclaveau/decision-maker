@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Results for Poll<%= rows[0]['poll_id'] %> </title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+  <body>
+    <%- include('partials/_header') %>
+
+    <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1>
+    <h2> <%= rows[0]['name'] %> </h2>
+    <h3> The number of voters: <%= rows[0]['num_voters']%> </h3>
+
+    <table>
+      <tr>
+        <th>option_id</th>
+        <th>title</th>
+        <th>sum_rank</th>
+        <th>final_rank</th>
+      </tr>
+
+    <% for (const rowIndex in rows) { %>
+
+        <tr>
+          <td><%= rows[rowIndex]['option_id'] %></td>
+          <td><%= rows[rowIndex]['title'] %></td>
+          <td><%= rows[rowIndex]['sum_rank'] %></td>
+          <td><%= rowIndex %></td>
+        </tr>
+
+    <% } %>
+
+    </table>
+
+    <%- include('partials/_footer') %>
+  </body>
+</html>
