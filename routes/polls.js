@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const pollQueries = require('../lib/poll-queries');
 
 // GET /polls/:poll_id/guest_name
@@ -16,7 +16,7 @@ router.get('/:poll_id/results/:guest_name', (req, res) => {
 // GET /:poll_id/results
 router.get('/:poll_id/results', (req, res) => {
   pollQueries.getPollResults(req.params.poll_id)
-  .then(pollResult => {
+    .then(pollResult => {
       res.json(pollResult);
     })
     .catch(err => {
@@ -33,7 +33,10 @@ module.exports = router;
 router.get('/:poll_id', (req, res) => {
   pollQueries.getOptions(req.params.poll_id)
     .then(options => {
-      res.json(options);
+      const templateVar = {
+        options
+      }
+      res.render('../views/poll.ejs', templateVar);
     })
     .catch(err => {
       console.log("err", err.message);
@@ -43,7 +46,7 @@ router.get('/:poll_id', (req, res) => {
 // POST /polls/:poll_id
 // Submit my votes
 router.post('/:poll_id', (req, res) => {
-  pollQueries.postMyVotes(req.body.rank,req.body.optinId,req.body.voterName)
+  pollQueries.postMyVotes(req.body.rank, req.body.optinId, req.body.voterName)
     .then(votes => {
       // res.json(polls);
     })
