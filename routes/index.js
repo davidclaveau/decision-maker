@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+const { options } = require('pg/lib/defaults');
 const router  = express.Router();
 const indexQueries = require('../lib/index-queries');
 
@@ -17,12 +18,24 @@ router.get('/', (req, res) => {
 // POST /index
 router.post('/', (req, res) => {
   const name = req.body.pollName;
+  const arr = Object.keys(req.body);
 
-  // These would probably do better in arrays
-  const option1 = req.body.option1;
-  const description1 = req.body.description1;
+  const optionsArr = [];
+  const descriptionsArr = [];
 
-  indexQueries.postIndex(name, req.params.id, option1, description1)
+  arr.forEach(element => {
+    if (element.startsWith("option")) {
+      optionsArr.push(req.body[element])
+    }
+    if (element.startsWith("description")) {
+      descriptionsArr.push(req.body[element])
+    }
+  })
+
+  console.log("optionsArr", optionsArr);
+  console.log("descriptionsArr", descriptionsArr);
+
+  indexQueries.postIndex(name, req.params.id, optionsArr, descriptionsArr)
     .then(res => {
       // console.log("res", res)
     })
