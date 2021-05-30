@@ -16,8 +16,21 @@ router.get('/:poll_id/results/:guest_name', (req, res) => {
 // GET /:poll_id/results
 router.get('/:poll_id/results', (req, res) => {
   pollQueries.getPollResults(req.params.poll_id)
-    .then(pollResult => {
-      res.json(pollResult);
+  .then(pollResult => {
+      // res.json(pollResult);
+
+/*       let templateVars = {
+        poll_id: pollResult[0]['poll_id']
+      }
+      for (const row of pollResult) {
+        templateVars['option_id'] = row['option_id'];
+        templateVars['title'] = row['title'];
+        templateVars['sum_rank'] = row['sum_rank'];
+      } */
+      let templateVars = {
+        rows: pollResult
+      }
+      res.render('../views/results.ejs', templateVars);
     })
     .catch(err => {
       console.log("SometingWrong Here 1", err);
