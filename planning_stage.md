@@ -44,7 +44,7 @@ mixture of horizontal and vertical approach
 ## Schedule:
 ​
 10:30 AM MST/9:30 AM PST start time
-​
+
 ### Saturday:
 
 #### Routes List
@@ -57,16 +57,22 @@ mixture of horizontal and vertical approach
 polls/:poll_id               get  --- page for a specific poll (Link we send to voters)   ---Feng
 polls/:poll_id               post --- submit the vote  ---Feng
 <!-- polls/:poll_id/guest_name    get ---for user to see one submission ---Zio -->
-polls/:poll_id/result        get --- final count for votes ---Zio
+polls/:poll_id/results        get --- final count for votes ---Zio
 
 #### Ejs Templates
 * /index                      ---for users to create polls  ---David
 * /user/:user_id              ---for users to admin all his polls ---Feng
 * polls/:poll_id              --- Link send to voters ---Feng
 <!-- * polls/:poll_id/submission_id   ---for user to see one submission  -->
-* polls/:poll_id/result       ---final result page of a poll  ---Zio
+* polls/:poll_id/results       ---final result page of a poll  ---Zio
 
 ### Sunday:
+
+# Impove web page functions
+* /index                     ---David
+* /user/:user_id             ---Feng
+* /polls/:poll_id            ----Zio
+* /polls/:poll_id/results
 
 ### Monday:
 
