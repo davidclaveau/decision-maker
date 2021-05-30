@@ -40,7 +40,6 @@ app.use("/index/", indexRoutes);
 app.use("/api/users/", usersRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/polls", pollsRoutes);
-app.use("/results", resultsRoutes);
 // Note: mount other resources here, using the same pattern above
 
 
