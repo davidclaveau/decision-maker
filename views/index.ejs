@@ -24,25 +24,19 @@
     <section><!-- Left side where we create the poll -->
       <form action="/index" method="POST" id="poll-form">
         CREATE A POLL:
-        <input type="text" name="pollName" id="poll-name" required placeholder="Favourite colour!" />
+        <input type="text" name="pollName" id="poll-name" required placeholder="Ex. What's your favourite colour?" />
       <br>
       <container class ="options">
-          <!-- Must have at least two options? -->
-          <div class="option0">
-            <span>Option:</span>
-            <input type="text" name="option0" required placeholder="Fuchsia!" />
-            <span>Description:</span>
-            <input type="text" name="description0" placeholder="What a lovely colour!" />
-          </div>
-          <div class="option1">
-            <span>Option:</span>
-            <input type="text" name="option1" required placeholder="Chartreuse!"/>
-            <span>Description:</span>
-            <input type="text" name="description1" placeholder="Another lovely colour!"/>
-          </div>
-        </container>
+        <div class="option 0">
+          <span>Option:</span>
+          <input type="text" name="option0" required placeholder="Ex. Chartreuse" />
+          <span>Description:</span>
+          <input type="text" name="description0"  placeholder="Ex. What a lovely colour!" />
+          <button type="button" class="delete-0">Delete</button>
+        </div>
+      </container>
+      <button type="submit">Send My Poll</button>
 
-        <button type="submit">Send My Poll</button>
       </form>
     </section>
 
