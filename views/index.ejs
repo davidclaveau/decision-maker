@@ -9,20 +9,37 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/index-add-option.js"></script>
+    <script type="text/javascript" src="/scripts/index-option.js"></script>
+    <script type="text/javascript" src="/scripts/are-you-sure.js"></script>
+
+    </script>
   </head>
+
+  <%- include('partials/_header') %>
 
   <body>
     <h1>This will be where users can create polls</h1>
 
   <main>
     <section><!-- Left side where we create the poll -->
-      <form action="/index" method="POST">
+      <form action="/index" method="POST" id="poll-form">
         CREATE A POLL:
-        <input type="text" name="pollName" id="poll-name" required />
+        <input type="text" name="pollName" id="poll-name" required placeholder="Favourite colour!" />
       <br>
-        <container class ="options">
-
+      <container class ="options">
+          <!-- Must have at least two options? -->
+          <div class="option0">
+            <span>Option:</span>
+            <input type="text" name="option0" required placeholder="Fuchsia!" />
+            <span>Description:</span>
+            <input type="text" name="description0" placeholder="What a lovely colour!" />
+          </div>
+          <div class="option1">
+            <span>Option:</span>
+            <input type="text" name="option1" required placeholder="Chartreuse!"/>
+            <span>Description:</span>
+            <input type="text" name="description1" placeholder="Another lovely colour!"/>
+          </div>
         </container>
 
         <button type="submit">Send My Poll</button>
@@ -38,12 +55,6 @@
       <input type="text" name="description" id="description-input" />
       <button type="submit" id="add-option">Add Option</button>
       <br>
-
-    <!-- This could have a button to "add an option"
-      so the user can add options as they go along -
-      or they have an option to choose up to 10...
-      for now it's one -->
-
   </main>
 
   <br>
