@@ -6,20 +6,32 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const userQueries = require('../lib/user-queries');
 
 // GET /api/users/:id
 router.get('/:id', (req, res) => {
-  userQueries.getUserById(req.params.id)
+  userQueries.getAllPollByUserId(req.params.id)
     .then(user => {
-      const name = user[0].user_name;
-      const polls = [];
+      const userName = user[0].user_name;
+
+      //define a pollMap to store one user's all polls and their corresponding options
+      const pollMap = new Map();
+      //define a pollName to store one user's all poll id and poll name
+      const pollName = new Map();
+
+      //put one user's all polls and their options in pollMap
       for (const obj of user) {
-        polls.push(obj['poll_name']);
+        if (!pollMap.has(obj.poll_id)) {
+          pollMap.set(obj.poll_id, new Set());
+        }
+        let eachPoll = pollMap.get(obj.poll_id);
+        eachPoll.add({ optionId: obj.option_id, optionTitle: obj.option_title, rank: obj.sum_rank });
+        //put one user's all poll names in pollName
+        pollName.set(obj.poll_id, obj.poll_name);
       }
 
-      templateVars = { name, polls }
+      templateVars = { userName, pollName, pollMap }
       res.render("users.ejs", templateVars);
     })
     .catch(err => {
