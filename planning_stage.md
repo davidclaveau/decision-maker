@@ -51,13 +51,20 @@ mixture of horizontal and vertical approach
 * Users route: prefix(users)  ----David
 /index              get  --- page for creating a poll
 /index              post --- admin send polls
-/:user_id           get  --- page for all polls created for a logged in user
+/user//:user_id           get  --- page for all polls created for a logged in user
 
 * Polls route: prefix(polls)
 polls/:poll_id               get  --- page for a specific poll (Link we send to voters)   ---Feng
 polls/:poll_id               post --- submit the vote  ---Feng
-polls/:poll_id/guest_name    get ---for user to see one submission ---Zio
+<!-- polls/:poll_id/guest_name    get ---for user to see one submission ---Zio -->
 polls/:poll_id/result        get --- final count for votes ---Zio
+
+#### Ejs Templates
+* /index                      ---for users to create polls  ---David
+* /user/:user_id              ---for users to admin all his polls ---Feng
+* polls/:poll_id              --- Link send to voters ---Feng
+<!-- * polls/:poll_id/submission_id   ---for user to see one submission  -->
+* polls/:poll_id/result       ---final result page of a poll  ---Zio
 
 ### Sunday:
 
