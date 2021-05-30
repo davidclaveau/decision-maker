@@ -33,7 +33,6 @@ app.use(express.static("public"));
 const indexRoutes = require("./routes/index");
 const usersRoutes = require("./routes/users");
 const pollsRoutes = require("./routes/polls");
-const resultsRoutes = require("./routes/results");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/index/", indexRoutes);
