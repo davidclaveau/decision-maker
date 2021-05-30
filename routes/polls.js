@@ -14,7 +14,7 @@ router.get('/:poll_id/results/:guest_name', (req, res) => {
 });
 
 // GET /:poll_id/results
-router.get('/:poll_id', (req, res) => {
+router.get('/:poll_id/results', (req, res) => {
   pollQueries.getPollResults(req.params.poll_id)
   .then(pollResult => {
       res.json(pollResult);
