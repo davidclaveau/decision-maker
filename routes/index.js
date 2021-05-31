@@ -12,8 +12,6 @@ const indexQueries = require('../lib/index-queries');
 
 // GET /index
 router.get('/', (req, res) => {
-  console.log("Please work:", req.headers.cookie);
-  console.log("req:", req);
   res.render('index.ejs');
 });
 
@@ -31,7 +29,7 @@ router.post('/', (req, res) => {
   const optionsArr = [];
   const descriptionsArr = [];
 
-  console.log("what is the user?", req.cookie.user_id);
+  console.log("what is the user?", req.cookies.user_id);
 
   arr.forEach(element => {
     if (element.startsWith("option")) {
@@ -42,7 +40,7 @@ router.post('/', (req, res) => {
     }
   })
 
-  indexQueries.postIndex(name, req.cookie.user_id, optionsArr, descriptionsArr)
+  indexQueries.postIndex(name, req.cookies.user_id, optionsArr, descriptionsArr)
     .then(res => {
       // console.log("res", res)
     })
