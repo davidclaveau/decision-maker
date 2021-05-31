@@ -10,8 +10,6 @@ $(document).ready(function() {
       const rank = $(this).parent().children('.rank').html();
       const rankPercentage = (Number(rank) * 3.5 + '%').split(' ').join('').split('\n').join('');
 
-      console.log(rankPercentage);
-
       $(this).animate({
         'width': rankPercentage
       }, 1000);

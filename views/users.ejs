@@ -12,6 +12,7 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/users.js"></script>
   <script type="text/javascript" src="/scripts/user_display_result.js"></script>
+  <script type="text/javascript" src="/scripts/user_edit.js"></script>
 </head>
 
 <body>
@@ -26,10 +27,13 @@
         <section class="poll-container">
           <div class="poll">poll name: <%= pollName.get(key) %>
           </div>
+          <button class="edit">eidt</button>
+          <button class="delete">delete</button>
           <div class="options-container">
             <span>
               <%= pollName.get(key) %>
             </span>
+
             <ul>
               <% for (const option of value){ %>
                 <li>

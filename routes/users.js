@@ -11,6 +11,9 @@ const userQueries = require('../lib/user-queries');
 
 // GET /api/users/:id
 router.get('/:id', (req, res) => {
+
+  res.cookie("user_id", req.params.user_id);
+
   userQueries.getAllPollByUserId(req.params.id)
     .then(user => {
       const userName = user[0].user_name;
