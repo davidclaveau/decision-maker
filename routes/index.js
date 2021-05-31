@@ -9,7 +9,6 @@ const express = require('express');
 const { options } = require('pg/lib/defaults');
 const router  = express.Router();
 const indexQueries = require('../lib/index-queries');
-const userQueries = require('../lib/user-queries');
 
 // GET /index
 router.get('/', (req, res) => {
@@ -17,11 +16,7 @@ router.get('/', (req, res) => {
 });
 
 /*
- * Find all options and their descriptions. These
- * will be passed to the query as arrays as there can be
- * several options and descriptions for one poll. These will then
- * be looped in index-queries.js for each option and
- * its respective description.
+ Create a poll, while finding all options and their descriptions. The options and descriptions will be passed to the query as arrays. These will then be looped in index-queries.js for each option and its respective description.
  */
 // POST /index
 router.post('/', (req, res) => {
@@ -40,21 +35,17 @@ router.post('/', (req, res) => {
   })
 
   indexQueries.postIndex(name, req.cookies.user_id, optionsArr, descriptionsArr)
-    .then(poll => {
-      const pollId = poll.id
-      console.log("poll", poll)
+    .then(response => {
+      const responseObj = response.rows[0]
+      const pollId = responseObj.poll_id;
       res.redirect(`/polls/${pollId}`);
-      return poll;
+      return responseObj;
     })
-    .then(poll => {
-      const userId = poll.owner_id;
-
-      // Another promise to get the owner of the poll
-      userQueries.getUser(userId)
-        .then((user) => {
-          console.log("This should be the user", user);
-        });
-
+    .then(obj => {
+      const userId = obj.user_id;
+      const name = obj.user_name;
+      const email = obj.user_email;
+      console.log("userId", userId);
     })
     .catch(err => {
       console.log("Error:", err)
