@@ -1,5 +1,6 @@
 $(document).ready(() => {
-  $('#submit').click(() => {
+  $('#submit').click((event) => {
+    event.stopPropagation();
     let votes = {};
     let ranknum = 1;
     const results = $('.option_title')
@@ -11,4 +12,5 @@ $(document).ready(() => {
     }
     console.log(votes);
   })
+
 });
