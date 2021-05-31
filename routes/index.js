@@ -6,9 +6,12 @@
  */
 
 const express = require('express');
-const { options } = require('pg/lib/defaults');
 const router  = express.Router();
 const indexQueries = require('../lib/index-queries');
+const { sendCreatePollEmail } = require('../mailgun/sendEmails');
+
+// For mailgun email, replace with domain
+const url = `http://localhost:8080`
 
 // GET /index
 router.get('/', (req, res) => {
@@ -42,10 +45,13 @@ router.post('/', (req, res) => {
       return responseObj;
     })
     .then(obj => {
-      const userId = obj.user_id;
+      const pollId = obj.poll_id;
       const name = obj.user_name;
       const email = obj.user_email;
-      console.log("userId", userId);
+      const resultsLink = `${url}/polls/${pollId}/results`
+      const submissionLink = `${url}/polls/${pollId}`
+
+      sendCreatePollEmail(name, email, resultsLink, submissionLink);
     })
     .catch(err => {
       console.log("Error:", err)
