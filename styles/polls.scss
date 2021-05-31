@@ -14,11 +14,12 @@ ul{
   height: auto;
   border: 1px solid black;
   margin: 20px 0;
-  .option_description{
+  background-color: aliceblue;
+  .option_description {
     width: 600px;
     border: 1px solid black;
     margin: 0;
-    display:none;
+    display:flex;
   }
 }
 

@@ -9,7 +9,7 @@ const express = require('express');
 const router = express.Router();
 const userQueries = require('../lib/user-queries');
 
-// GET /api/users/:id
+// GET /users/:id
 router.get('/:id', (req, res) => {
   userQueries.getAllPollByUserId(req.params.id)
     .then(user => {
