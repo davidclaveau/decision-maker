@@ -22,7 +22,7 @@ $(document).ready(() => {
     const opt = $(`
       <div class="option ${optCount}">
         <span>Option:</span>
-        <input type="text" name="option${optCount}" value="${option}"/>
+        <input type="text" name="option${optCount}" required value="${option}"/>
         <span>Description:</span>
         <input type="text" name="description${optCount}" value="${description}"/>
         <button type="button" class="delete-btn ${optCount}">Delete</button>
