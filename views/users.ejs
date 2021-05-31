@@ -3,29 +3,26 @@
 
 <head>
   <title>Polls for <%= userName %>  </title>
-
+ <!-- Inner CSS Links -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/user.css" type="text/css" />
+<!-- Inner JS Links -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/users.js"></script>
+  <script type="text/javascript" src="/scripts/user_display_result.js"></script>
 </head>
 
 <body>
 
   <!-- <%- include('partials/_header') %> -->
-
   <h1>Polls for <%= userName %>  </h1>
-
+<main>
   <table>
     <tr>
       <th>All My Polls</th>
-    </tr>
     <% for (const [key,value] of pollName) { %>
-      <td>
-        <br>
-      </td>
       <tr>
         <td>
           <%= pollName.get(key) %>
@@ -36,18 +33,19 @@
 
   <section>
     <% for (const [key, value] of pollMap) { %>
-      <div>
       <span><%= pollName.get(key) %></span>
-      <br>
+
+      <ul>
       <% for (const option of value){ %>
-        <div>
-          <%= option.optionTitle %>
-        </div>
+        <li>
+        <div class="bar" > <%= option.optionTitle %> </div>
         <span> <%= option.rank %></span>
+      </li>
       <% } %>
-    </div>
+    </ul>
     <% } %>
   </section>
+</main>
 
   <!-- <%- include('partials/_footer') %> -->
 

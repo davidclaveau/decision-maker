@@ -1,0 +1,46 @@
+h1{
+  width: 500px;
+  margin: 50px auto;
+  text-align: center;
+}
+main{
+  margin: 0 50px;
+  display: flex;
+  justify-content: center;
+}
+table{
+  // width: 500px;
+  border: 1px solid black;
+  padding: 15px 5px;
+  margin: 0 50px;
+  th{
+    height: 80px;
+  }
+  td{
+    height: 50px;
+    border: 1px solid black;
+  }
+}
+section{
+  width: 500px;
+}
+span{
+  border: 1px solid black;
+}
+ul{
+  list-style:none;
+    border: 1px solid black;
+    padding: 0 0 5px 0;
+li{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  div{
+    height: 50px;
+    // width: 300px;
+    background-color: #abc;
+  }
+ }
+}
+
+
