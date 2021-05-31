@@ -25,10 +25,12 @@
     <section>
       <% for (const [key, value] of pollMap) { %>
         <section class="poll-container">
-          <div class="poll">poll name: <%= pollName.get(key) %>
-          </div>
-          <button class="edit">eidt</button>
-          <button class="delete">delete</button>
+          <div class="poll">poll name: <%= pollName.get(key) %>      </div>
+        <!-- <form action="/users/<%= userId %>" method="POST" class="delete" > -->
+            <input type="hidden" name="userId" class="userId" value="<%= userId %>" />
+            <button class="delete" type="button" value="<%= key %>"  name='pollId' >delete </button>
+          <!-- </form> -->
+
           <div class="options-container">
             <span>
               <%= pollName.get(key) %>
