@@ -9,6 +9,7 @@ const express = require('express');
 const { options } = require('pg/lib/defaults');
 const router  = express.Router();
 const indexQueries = require('../lib/index-queries');
+const userQueries = require('../lib/user-queries');
 
 // GET /index
 router.get('/', (req, res) => {
@@ -39,10 +40,21 @@ router.post('/', (req, res) => {
   })
 
   indexQueries.postIndex(name, req.cookies.user_id, optionsArr, descriptionsArr)
-    .then(response => {
-      const pollId = response.id
-      console.log("response", response)
+    .then(poll => {
+      const pollId = poll.id
+      console.log("poll", poll)
       res.redirect(`/polls/${pollId}`);
+      return poll;
+    })
+    .then(poll => {
+      const userId = poll.owner_id;
+
+      // Another promise to get the owner of the poll
+      userQueries.getUser(userId)
+        .then((user) => {
+          console.log("This should be the user", user);
+        });
+
     })
     .catch(err => {
       console.log("Error:", err)
