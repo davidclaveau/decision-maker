@@ -2,8 +2,22 @@
 //delete poll
 $(document).ready(function() {
   $('.delete').each((function() {
-    $(this).click(function(){
-      $(this).parent().remove();
+    $(this).click(function() {
+      const userId = $(this).parent().find('.userId').attr('value');
+      console.log(userId);
+      const pollId = $(this).attr('value');
+      console.log(pollId);
+      const data = {
+        pollId
+      };
+      $.ajax(
+        {
+          url: `/users/${userId}`,
+          method: 'POST',
+          data: data
+        }
+      )
+        $(this).parent('.poll-container').remove();
     })
   }))
 });
