@@ -1,7 +1,7 @@
 /*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
+ * All routes for index are defined here
+ * Since this file is loaded in server.js into /index,
+ *   these routes are mounted onto /index
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
@@ -15,13 +15,21 @@ router.get('/', (req, res) => {
   res.render('index.ejs');
 });
 
+/*
+ * Find all options and their descriptions. These
+ * will be passed to the query as arrays as there can be
+ * several options and descriptions for one poll. These will then
+ * be looped in index-queries.js for each option and
+ * its respective description.
+ */
 // POST /index
 router.post('/', (req, res) => {
   const name = req.body.pollName;
   const arr = Object.keys(req.body);
-
   const optionsArr = [];
   const descriptionsArr = [];
+
+  console.log("what is the user?", req.cookies.user_id);
 
   arr.forEach(element => {
     if (element.startsWith("option")) {
@@ -32,10 +40,7 @@ router.post('/', (req, res) => {
     }
   })
 
-  console.log("optionsArr", optionsArr);
-  console.log("descriptionsArr", descriptionsArr);
-
-  indexQueries.postIndex(name, req.params.id, optionsArr, descriptionsArr)
+  indexQueries.postIndex(name, req.cookies.user_id, optionsArr, descriptionsArr)
     .then(res => {
       // console.log("res", res)
     })
