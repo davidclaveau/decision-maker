@@ -20,7 +20,7 @@
       <tr>
         <th>option_id</th>
         <th>title</th>
-        <th>sum_rank</th>
+        <th>sum_score</th>
         <th>final_rank</th>
       </tr>
 
@@ -30,7 +30,7 @@
           <td><%= rows[rowIndex]['option_id'] %></td>
           <td><%= rows[rowIndex]['title'] %></td>
           <td><%= rows[rowIndex]['sum_rank'] %></td>
-          <td><%= rowIndex %></td>
+          <td><%= parseInt(rowIndex) + 1 %></td>
         </tr>
 
     <% } %>

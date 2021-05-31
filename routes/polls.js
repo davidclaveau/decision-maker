@@ -40,6 +40,7 @@ router.get('/:poll_id', (req, res) => {
       const templateVar = {
         options
       }
+
       res.render('../views/poll.ejs', templateVar);
     })
     .catch(err => {
@@ -50,12 +51,26 @@ router.get('/:poll_id', (req, res) => {
 // POST /polls/:poll_id
 // Submit my votes
 router.post('/:poll_id', (req, res) => {
-  pollQueries.postMyVotes(req.body.rank, req.body.optinId, req.body.voterName)
-    .then(votes => {
-      // res.json(polls);
+
+  const voterName = req.body['voter_name'];
+
+  const optionsArr = req.body['option_id'];
+
+  let rankScore = 1;
+  for (const option of optionsArr.reverse()) {
+    pollQueries.postMyVotes(rankScore, parseInt(option), voterName)
+    .then(() => {
+      const pollId = req.body['poll_id']
+      res.redirect(`/polls/${pollId}/results`)
     })
     .catch(err => {
       console.log("err", err.message);
     });
+    rankScore ++;
+  }
+
+
+
 });
+
 module.exports = router;
