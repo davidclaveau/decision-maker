@@ -14,7 +14,6 @@
   <!-- Inner JS Links -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="../routes/polls.js"></script>
   <script type="text/javascript" src="/scripts/poll_drag_options.js"></script>
   <script type="text/javascript" src="/scripts/submit_poll.js"></script>
   <script type="text/javascript" src="/scripts/poll_display_description.js"></script>
@@ -36,9 +35,10 @@
         <%for(let i in options){ %>
           <li class="option_title">
             <%= options[i].title %>
-              <p class="option_description">
+
+            <p class="option_description">
                 <%= options[i].description %>
-              </p>
+            </p>
           </li>
           <% }%>
       </ul>
