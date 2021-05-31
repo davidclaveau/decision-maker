@@ -28,22 +28,35 @@
   <main>
     <h3>
       <%= options[0].name %>
-    </h3>
-    <div>
-      <input type="text" placeholder="Please input your name">
-      <ul id="sortable">
-        <%for(let i in options){ %>
-          <li class="option_title">
-            <%= options[i].title %>
 
-            <p class="option_description">
+    </h3>
+
+    <form action="/polls/<%= options[0].id %>"" method="POST" id="vote-form">
+      <input type="text" placeholder="Please input your name" name='voter_name'>
+      <input type='text' name='poll_id' hidden value="<%= options[0]['id'] %>">
+
+        <ul id="sortable">
+          <%for(let i in options){ %>
+            <li class="option_title">
+
+              <input type='text' name='option_id' hidden value="<%= options[i]['option_id'] %>">
+
+
+              <%= options[i].title %>
+            </input>
+
+              <p class="option_description">
                 <%= options[i].description %>
-            </p>
-          </li>
-          <% }%>
-      </ul>
-    </div>
-    <button id="submit">submit</button>
+              </p>
+            </li>
+            <% }%>
+        </ul>
+
+      <button id="submit">submit</button>
+    </form>
+
+
+
   </main>
   <br>
   <footer>
