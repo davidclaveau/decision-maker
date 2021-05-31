@@ -1,10 +1,13 @@
   $(document).ready(() => {
 
-  $('#click').click(() => {
+  $('.click').click(function() {
     // alert('click on title')
     // const description=$(this).children('.option_description');
-    // $(this).find('p').css
-    $('.option_description').slideToggle();
+    // console.log("clicked", $(this).html())
+    $(this).parent().find('.option_description').slideToggle()
+
+    // $('.option_description').css('background-color','red');
+    // console.log($('.option_description').parent().children().slideToggle())
   })
 });
 

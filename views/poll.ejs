@@ -31,14 +31,14 @@
     </h3>
     <div>
       <input type="text" placeholder="Please input your name">
-      <button type="menu" id="click">Toggle Descriptions</button>
       <ul id="sortable">
         <%for(let i in options){ %>
           <li class="option_title">
             <%= options[i].title %>
-              <p class="option_description">
+            <button type="menu" class="click">Toggle Descriptions</button>
+            <p class="option_description">
                 <%= options[i].description %>
-              </p>
+            </p>
           </li>
           <% }%>
       </ul>
