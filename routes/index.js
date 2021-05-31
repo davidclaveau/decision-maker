@@ -6,9 +6,12 @@
  */
 
 const express = require('express');
-const { options } = require('pg/lib/defaults');
 const router  = express.Router();
 const indexQueries = require('../lib/index-queries');
+const { sendCreatePollEmail } = require('../mailgun/sendEmails');
+
+// For mailgun email, replace with domain
+const url = `http://localhost:8080`
 
 // GET /index
 router.get('/', (req, res) => {
@@ -16,11 +19,7 @@ router.get('/', (req, res) => {
 });
 
 /*
- * Find all options and their descriptions. These
- * will be passed to the query as arrays as there can be
- * several options and descriptions for one poll. These will then
- * be looped in index-queries.js for each option and
- * its respective description.
+ Create a poll, while finding all options and their descriptions. The options and descriptions will be passed to the query as arrays. These will then be looped in index-queries.js for each option and its respective description.
  */
 // POST /index
 router.post('/', (req, res) => {
@@ -28,8 +27,6 @@ router.post('/', (req, res) => {
   const arr = Object.keys(req.body);
   const optionsArr = [];
   const descriptionsArr = [];
-
-  console.log("what is the user?", req.cookies.user_id);
 
   arr.forEach(element => {
     if (element.startsWith("option")) {
@@ -41,8 +38,20 @@ router.post('/', (req, res) => {
   })
 
   indexQueries.postIndex(name, req.cookies.user_id, optionsArr, descriptionsArr)
-    .then(res => {
-      // console.log("res", res)
+    .then(response => {
+      const responseObj = response.rows[0]
+      const pollId = responseObj.poll_id;
+      res.redirect(`/polls/${pollId}`);
+      return responseObj;
+    })
+    .then(obj => {
+      const pollId = obj.poll_id;
+      const name = obj.user_name;
+      const email = obj.user_email;
+      const resultsLink = `${url}/polls/${pollId}/results`
+      const submissionLink = `${url}/polls/${pollId}`
+
+      sendCreatePollEmail(name, email, resultsLink, submissionLink);
     })
     .catch(err => {
       console.log("Error:", err)
