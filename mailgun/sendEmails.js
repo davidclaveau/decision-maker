@@ -1,5 +1,7 @@
-const API_KEY = '97a3e683576c733e97c0c9ca9373e298-1d8af1f4-c1af59b3';
-const DOMAIN = 'sandbox493c43bc09a34879a0c849f0266827d7.mailgun.org';
+require('dotenv').config();
+
+const API_KEY = process.env.MG_API;
+const DOMAIN = process.env.MG_DOMAIN;
 const mailgun = require('mailgun-js')({apiKey: API_KEY, domain: DOMAIN});
 
 /*
