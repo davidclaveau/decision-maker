@@ -11,8 +11,15 @@ const userQueries = require('../lib/user-queries');
 
 // GET /users/:id
 router.get('/:id', (req, res) => {
+
+  res.cookie("user_id", req.params.user_id);
+
+
   userQueries.getAllPollByUserId(req.params.id)
     .then(user => {
+      const userId = user[0].user_id;
+      console.log(userId);
+
       const userName = user[0].user_name;
 
       //define a pollMap to store one user's all polls and their corresponding options
@@ -31,12 +38,24 @@ router.get('/:id', (req, res) => {
         pollName.set(obj.poll_id, obj.poll_name);
       }
 
-      templateVars = { userName, pollName, pollMap }
+      templateVars = { userId, userName, pollName, pollMap }
       res.render("users.ejs", templateVars);
     })
     .catch(err => {
       console.log("Error:", err)
     });
 });
+
+// router.post("/test",(req,res) =>{
+//   console.log("we are testing it");
+// });
+router.post('/:id', (req, res) => {
+  console.log(req.body);
+  console.log("we are testing it");
+  userQueries.deletePoll(req.body.pollId)
+    .catch(err => {
+      console.log("Error:", err)
+    });
+})
 
 module.exports = router;

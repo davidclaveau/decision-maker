@@ -1,0 +1,41 @@
+h1{
+  width: 500px;
+  margin: 50px auto;
+  text-align: center;
+}
+main{
+  margin: 0 50px;
+  display: flex;
+  justify-content: center;
+}
+// table{
+//   // width: 500px;
+//   border: 1px solid black;
+//   padding: 15px 5px;
+//   margin: 0 50px;
+//   th{
+//     height: 80px;
+//   }
+//   td{
+//     height: 50px;
+//     border: 1px solid black;
+//   }
+// }
+ul{
+  padding: 0;
+}
+li{
+  list-style:none;
+  display: flex;
+  justify-content: space-between;
+
+}
+.bar{
+  background-color: #abc;
+  overflow-x: visible;
+  white-space:nowrap;
+}
+.options-container{
+  border: 1px solid black;
+  display: none;
+}
