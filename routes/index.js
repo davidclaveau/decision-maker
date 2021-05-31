@@ -29,8 +29,6 @@ router.post('/', (req, res) => {
   const optionsArr = [];
   const descriptionsArr = [];
 
-  console.log("what is the user?", req.cookies.user_id);
-
   arr.forEach(element => {
     if (element.startsWith("option")) {
       optionsArr.push(req.body[element])
@@ -41,8 +39,10 @@ router.post('/', (req, res) => {
   })
 
   indexQueries.postIndex(name, req.cookies.user_id, optionsArr, descriptionsArr)
-    .then(res => {
-      // console.log("res", res)
+    .then(response => {
+      const pollId = response.id
+      console.log("response", response)
+      res.redirect(`/polls/${pollId}`);
     })
     .catch(err => {
       console.log("Error:", err)
