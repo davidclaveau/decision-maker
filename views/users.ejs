@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <title>Polls for <%= userName %>  </title>
- <!-- Inner CSS Links -->
+
+  <!-- Inner CSS Links -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/user.css" type="text/css" />
-<!-- Inner JS Links -->
+  <!-- Inner JS Links -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/users.js"></script>
   <script type="text/javascript" src="/scripts/user_display_result.js"></script>
@@ -17,35 +17,36 @@
 <body>
 
   <!-- <%- include('partials/_header') %> -->
-  <h1>Polls for <%= userName %>  </h1>
-<main>
-  <table>
-    <tr>
-      <th>All My Polls</th>
-    <% for (const [key,value] of pollName) { %>
-      <tr>
-        <td>
-          <%= pollName.get(key) %>
-        </td>
-      </tr>
-      <% } %>
-  </table>
+  <h1>Polls for <%= userName %>
+  </h1>
+  <main>
 
-  <section>
-    <% for (const [key, value] of pollMap) { %>
-      <span><%= pollName.get(key) %></span>
-
-      <ul>
-      <% for (const option of value){ %>
-        <li>
-        <div class="bar" > <%= option.optionTitle %> </div>
-        <span> <%= option.rank %></span>
-      </li>
-      <% } %>
-    </ul>
-    <% } %>
-  </section>
-</main>
+    <section>
+      <% for (const [key, value] of pollMap) { %>
+        <section class="poll-container">
+          <div class="poll">poll name: <%= pollName.get(key) %>
+          </div>
+          <div class="options-container">
+            <span>
+              <%= pollName.get(key) %>
+            </span>
+            <ul>
+              <% for (const option of value){ %>
+                <li>
+                  <div class="bar">
+                    <%= option.optionTitle %>
+                  </div>
+                  <span class="rank">
+                    <%= option.rank %>
+                  </span>
+                </li>
+                <% } %>
+            </ul>
+          </div>
+        </section>
+        <% } %>
+    </section>
+  </main>
 
   <!-- <%- include('partials/_footer') %> -->
 

@@ -1,16 +1,21 @@
-$(document).ready(() => {
+$(document).ready(function() {
+  $('.poll').click(function() {
 
-  $(function() {
-    $('ul li .bar').each(function(){
-      const rank=$(this).parent().children('span').html();
-      console.log(rank);
+    const optionsContainer = $(this).parent().find('.options-container');
+    //toggle options container
+    $(optionsContainer).slideToggle(1000);
+    //set options bar chart
+    $(optionsContainer).find('.bar').each(function() {
+
+      const rank = $(this).parent().children('.rank').html();
+      const rankPercentage = (Number(rank) * 3.5 + '%').split(' ').join('').split('\n').join('');
+
+      console.log(rankPercentage);
+
       $(this).animate({
-      'width':rank +'%'
-      },1000);
-    });
-  })
-  // $('li').click(() => {
-  //   alert('you click');
-  // })
+        'width': rankPercentage
+      }, 1000);
+    })
 
+  })
 });
