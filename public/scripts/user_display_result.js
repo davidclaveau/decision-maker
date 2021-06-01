@@ -44,4 +44,9 @@ $(document).ready(function() {
     })
   }))
 
+  //hover function
+  $('.poll-title-container').hover(function(){
+    $(this).toggleClass("shadow");
+  })
+
 });

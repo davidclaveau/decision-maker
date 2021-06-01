@@ -29,9 +29,12 @@ main{
   border-radius: 5px;
   font-size: 12px;
   padding: 2px 2px;
+
   i{
-margin: auto 0;
+  margin: auto 0;
+  color: #353b48;
   }
+
   .poll{
   line-height:35px ;
   width: 90%;
@@ -44,6 +47,13 @@ margin: auto 0;
     border: none;
     padding-left: 5px;
   }
+}
+.shadow{
+  box-shadow:0 4px 2px 0 rgba(0, 0, 0, 1);
+}
+
+button :hover{
+  color: red;
 }
 .options-container{
   width: 100%;
@@ -89,6 +99,8 @@ h1{
   .poll-title-container{
     width: 45%;
     font-size: 19px;
+    margin:5px 5px;
+
   }
   .options-container{
     width: 52%;
@@ -107,8 +119,9 @@ h1{
   }
   .poll-container{
     .poll-title-container{
-      width: 40%;
+      width: 45%;
       font-size: 24px;
+
     }
     .options-container{
       width: 50%;
