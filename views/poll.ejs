@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title><%= options[0].name %></title>
   <!-- Inner CSS Links -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -32,24 +32,33 @@
     </h3>
 
     <form action="/polls/<%= options[0].id %>"" method="POST" id="vote-form">
-      <input type="text" placeholder="Please input your name" name='voter_name'>
+      <div class="name_field">
+      <label>Enter your name</label>
+    <input type='text' placeholder="Please input your name" name='voter_name'>
+       </div>
+      <div class="option_list">
+
       <input type='text' name='poll_id' hidden value="<%= options[0]['id'] %>">
 
       <ul id="sortable">
         <%for(let i in options){ %>
+          <div>
             <li class="option_title">
               <input type='text' name='option_id' hidden value="<%= options[i]['option_id'] %>">
               <%= options[i].title %>
             </input>
+          </li>
 
             <p class="option_description">
               <%= options[i].description %>
             </p>
-          </li>
+          </div>
+
             <% }%>
         </ul>
 
       <button id="submit">submit</button>
+    </div>
     </form>
 
 

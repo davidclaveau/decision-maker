@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1, h2, h3{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+table {
+  display: flex;
+  border: rgb(0, 0, 0) solid;
+  border-radius: 25px;
+  margin: 0 10em;
+  justify-content: center
+
+}
+
+
+
+
