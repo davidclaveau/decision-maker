@@ -8,7 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 const indexQueries = require('../lib/index-queries');
-const { sendCreatePollEmail } = require('../mailgun/sendEmails');
+const { sendCreatePollEmail, sendPollSubmissionEmail } = require('../mailgun/sendEmails');
 
 // For mailgun email, replace with domain
 const url = `http://localhost:8080`
