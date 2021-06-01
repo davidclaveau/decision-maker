@@ -1,7 +1,12 @@
 $(document).ready(() => {
-  $('#submit').click((event) => {
+
+  $('#not_submit').click((event) => {
     event.stopPropagation();
-    let votes = {};
+    alert("Do not re-submit your answer again!")
+
+
+
+   /*  let votes = {};
     let ranknum = 1;
     const results = $('.option_title')
     console.log(results)
@@ -10,7 +15,7 @@ $(document).ready(() => {
       ranknum ++;
       // alert(child.childNodes[0].nodeValue);
     }
-    console.log(votes);
+    console.log(votes); */
   })
 
 });

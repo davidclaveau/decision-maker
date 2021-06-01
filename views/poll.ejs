@@ -31,35 +31,72 @@
 
     </h3>
 
-    <form action="/polls/<%= options[0].id %>"" method="POST" id="vote-form">
+    <% if (!user_answer) { %>
+
+      <form action="/polls/<%= options[0].id %>"" method="POST" id="vote-form">
+        <div class="name_field">
+        <label>Enter your name</label>
+      <input type='text' placeholder="Please input your name" name='voter_name'>
+         </div>
+        <div class="option_list">
+
+        <input type='text' name='poll_id' hidden value="<%= options[0]['id'] %>">
+
+        <ul id="sortable">
+          <%for(let i in options){ %>
+            <div>
+              <li class="option_title">
+                <input type='text' name='option_id' hidden value="<%= options[i]['option_id'] %>">
+                <%= options[i].title %>
+              </input>
+            </li>
+
+              <p class="option_description">
+                <%= options[i].description %>
+              </p>
+            </div>
+
+              <% }%>
+          </ul>
+
+        <button id="submit">submit</button>
+      </div>
+      </form>
+
+
+    <% }  else {%>
       <div class="name_field">
-      <label>Enter your name</label>
-    <input type='text' placeholder="Please input your name" name='voter_name'>
-       </div>
-      <div class="option_list">
+        <label>Enter your name</label>
+      <input type='text' placeholder="Please input your name" name='voter_name'>
+         </div>
+        <div class="option_list">
 
-      <input type='text' name='poll_id' hidden value="<%= options[0]['id'] %>">
+        <input type='text' name='poll_id' hidden value="<%= options[0]['id'] %>">
 
-      <ul id="sortable">
-        <%for(let i in options){ %>
-          <div>
-            <li class="option_title">
-              <input type='text' name='option_id' hidden value="<%= options[i]['option_id'] %>">
-              <%= options[i].title %>
-            </input>
-          </li>
+        <ul id="sortable">
+          <%for(let i in options){ %>
+            <div>
+              <li class="option_title">
+                <input type='text' name='option_id' hidden value="<%= options[i]['option_id'] %>">
+                <%= options[i].title %>
+              </input>
+            </li>
 
-            <p class="option_description">
-              <%= options[i].description %>
-            </p>
-          </div>
+              <p class="option_description">
+                <%= options[i].description %>
+              </p>
+            </div>
 
-            <% }%>
-        </ul>
+              <% }%>
+          </ul>
 
-      <button id="submit">submit</button>
-    </div>
-    </form>
+        <button id="not_submit">submit</button>
+      </div>
+
+
+
+      <% }%>
+
 
 
 
