@@ -61,7 +61,6 @@ router.post('/', (req, res) => {
         const submissionLink = `${url}/polls/${pollId}`
 
         sendCreatePollEmail(name, email, resultsLink, submissionLink);
-        res.redirect(`/polls/${pollId}`);
      })
   })
   .catch(err => {
