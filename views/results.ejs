@@ -14,30 +14,31 @@
   <body>
 
     <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1>
+    <div class="results">
     <h2> <%= rows[0]['name'] %> </h2>
     <h3> The number of voters: <%= rows[0]['num_voters']%> </h3>
 
     <table>
       <tr>
         <!-- <th>option_id</th> -->
-        <th>title</th>
+        <th class="rows">title</th>
         <!-- <th>sum_score</th> -->
-        <th>final_rank</th>
+        <th class="rows">final_rank</th>
       </tr>
 
     <% for (const rowIndex in rows) { %>
 
         <tr>
           <!-- <td><%= rows[rowIndex]['option_id'] %></td> -->
-          <td><%= rows[rowIndex]['title'] %></td>
+          <td class="rows"><%= rows[rowIndex]['title'] %></td>
           <!-- <td><%= rows[rowIndex]['sum_rank'] %></td> -->
-          <td><%= parseInt(rowIndex) + 1 %></td>
+          <td class="rows"><%= parseInt(rowIndex) + 1 %></td>
         </tr>
 
     <% } %>
 
     </table>
-
+  </div>
   </body>
   <%- include('partials/_footer') %>
 </html>
