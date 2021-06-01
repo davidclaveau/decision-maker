@@ -1,26 +1,63 @@
 h1{
-  width: 500px;
+  width: 400px;
   margin: 50px auto;
   text-align: center;
+  margin-bottom: 100px;
 }
 main{
-  margin: 0 50px;
+  margin: 0 20px;
   display: flex;
   justify-content: center;
+  height: 450px;
 }
-// table{
-//   // width: 500px;
-//   border: 1px solid black;
-//   padding: 15px 5px;
-//   margin: 0 50px;
-//   th{
-//     height: 80px;
-//   }
-//   td{
-//     height: 50px;
-//     border: 1px solid black;
-//   }
-// }
+#frame{
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+}
+.poll-container{
+  width: 100%;
+  margin-bottom:8px;
+}
+.poll-title-container{
+  width: 100%;
+  display: flex;
+  justify-content:start;
+  align-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 2px 2px;
+  i{
+margin: auto 0;
+  }
+  .poll{
+  line-height:35px ;
+  width: 90%;
+  overflow:auto ;
+  margin:0 5px;
+  }
+
+  button{
+    background-color: transparent;
+    border: none;
+    padding-left: 5px;
+  }
+}
+.options-container{
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: none;
+  font-size:12px;
+  padding: 0 5px;
+  span{
+  display: block;
+  margin: 5px 0;
+  }
+}
+
 ul{
   padding: 0;
 }
@@ -28,14 +65,54 @@ li{
   list-style:none;
   display: flex;
   justify-content: space-between;
-
 }
 .bar{
-  background-color: #abc;
+  background-color: #ff9f43;
   overflow-x: visible;
   white-space:nowrap;
+  margin: 2px;
+  padding-left: 3px;
+  width: 0;
+  transition: width 1s
 }
-.options-container{
-  border: 1px solid black;
-  display: none;
+@media only screen and (min-width: 768px) {
+main{
+  margin:0 5vw;
+}
+h1{
+  margin: 200px auto;
+}
+.poll-container{
+  display: flex;
+  justify-content: space-between;
+  align-content: stretch;
+  .poll-title-container{
+    width: 45%;
+    font-size: 19px;
+  }
+  .options-container{
+    width: 52%;
+    position: absolute;
+    right:0;
+    top:0;
+    font-size: 20px;
+  }
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  main{
+    margin:0 20vw;
+  }
+  .poll-container{
+    .poll-title-container{
+      width: 40%;
+      font-size: 24px;
+    }
+    .options-container{
+      width: 50%;
+      font-size: 24px;
+    }
+    }
 }

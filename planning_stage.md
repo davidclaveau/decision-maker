@@ -84,6 +84,12 @@ polls/:poll_id/results        get --- final count for votes ---Zio
 
 ### Tuesday:
 
+# Impove web page functions and make CSS stylesheet
+* /index                     ---David
+* /user/:user_id             ---Feng
+* /polls/:poll_id            ----Zio
+* /polls/:poll_id/results    ----Zio
+
 ### Wednesday:
 
 ### Thursday:
