@@ -1,10 +1,20 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background: rgb(253,223,70);
+  // background: linear-gradient(90deg, rgba(253,223,70,1) 0%, rgba(69,215,181,1) 80%, rgba(24,214,210,1) 100%);
+}
+
 main{
   width: 700px;
   margin: 0 auto;
   padding: 1em 1em;
-  border: rgb(0, 0, 0) solid;
+  border: #aaa solid;
   border-radius: 25px;
   display: flex;
+  background: rgb(253,229,70);
+  background: linear-gradient(90deg, rgba(253,229,70,1) 0%, rgba(69,215,172,1) 80%, rgba(24,200,214,1) 100%);
 }
 input{
   width: 200px;
@@ -60,7 +70,6 @@ h3 {
     padding-right: 1em;
     justify-content: center;
   }
-
 }
 
 

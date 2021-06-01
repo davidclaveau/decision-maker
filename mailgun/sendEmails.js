@@ -28,5 +28,25 @@ const sendCreatePollEmail = (name, email, resultsLink, submissionLink) => {
   });
 }
 
-module.exports = { sendCreatePollEmail };
+
+const sendPollSubmissionEmail = (name, email, resultsLink, usersLink) => {
+  const data = {
+    from: 'Decision Maker <decisionmaker@fengziodavid.com>',
+    to: email,
+    subject: `Hello ${name}!`,
+    html:`
+      <html>
+        <body> The link to see the results: <a href="${resultsLink}">can be found here</a> and the link to manage your account <a href="${usersLink}">can be found here</a>
+        </body>
+      </html>`
+  };
+  return mailgun.messages().send(data, (error, body) => {
+    if (error) {
+      console.log("Error1:", error)
+    }
+    console.log("This should be sending emails:", body)
+  });
+}
+
+module.exports = { sendCreatePollEmail, sendPollSubmissionEmail};
 

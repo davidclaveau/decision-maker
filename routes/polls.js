@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const pollQueries = require('../lib/poll-queries');
-
+const { sendCreatePollEmail, sendPollSubmissionEmail } = require('../mailgun/sendEmails');
+const url = `http://localhost:8080`
 // GET /polls/:poll_id/guest_name
 router.get('/:poll_id/results/:guest_name', (req, res) => {
   pollQueries.getGuestAnswers(req.params.poll_id, req.params.guest_name)
@@ -57,11 +58,11 @@ router.post('/:poll_id', (req, res) => {
   const optionsArr = req.body['option_id'];
   let rankScore = 1;
 
+  const pollId = req.body['poll_id']
   for (const option of optionsArr.reverse()) {
     pollQueries.postMyVotes(rankScore, parseInt(option), voterName)
     .then(() => {
-      const pollId = req.body['poll_id']
-      res.redirect(`/polls/${pollId}/results`)
+      res.redirect(`/polls/${pollId}`)
     })
     .catch(err => {
       console.log("err", err.message);
@@ -71,6 +72,20 @@ router.post('/:poll_id', (req, res) => {
 
   res.cookie('user_answer', req.body['option_id']);
 
+  pollQueries.getUserNameEmailUserid(parseInt(pollId))
+  .then((res) => {
+    const resObj = res[0]
+    const name = resObj.user_name;
+    const email = resObj.user_email;
+    const userId = resObj.user_id;
+
+    const resultsLink = `${url}/polls/${pollId}/results`
+    const usersLink = `${url}/users/${userId}`
+    sendPollSubmissionEmail(name, email, resultsLink, usersLink);
+  })
+  .catch(err => {
+    console.log("Error:", err)
+  });
 
 });
 
