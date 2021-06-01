@@ -16,14 +16,14 @@
     <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1>
     <div class="results">
     <h2> <%= rows[0]['name'] %> </h2>
-    <h3> Participants: <%= rows[0]['num_voters']%> </h3>
+    <h3> Total participants: <%= rows[0]['num_voters']%> </h3>
 
     <table>
       <tr>
 
         <th class="rows">Options</th>
-
-        <th class="rows">Rank</th>
+        <th class="rows">Scores</th>
+        <th class="rows">Ranks</th>
       </tr>
 
     <% for (const rowIndex in rows) { %>
@@ -31,8 +31,8 @@
         <tr>
 
           <td class="rows"><%= rows[rowIndex]['title'] %></td>
-          <!-- <td><%= rows[rowIndex]['sum_rank'] %></td> -->
-          <td class="rows"><%= parseInt(rowIndex) + 1 %></td>
+          <td><%= rows[rowIndex]['sum_rank'] %></td>
+          <td class="rows"><%= rankings[rowIndex] %></td>
         </tr>
 
     <% } %>

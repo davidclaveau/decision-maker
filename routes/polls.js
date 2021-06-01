@@ -19,8 +19,15 @@ router.get('/:poll_id/results', (req, res) => {
   pollQueries.getPollResults(req.params.poll_id)
   .then(pollResult => {
       // res.json(pollResult);
+      let scores = [];
+      const rankings = (score, index) => scores.indexOf(score) + 1
+      for (const row of pollResult) {
+        scores.push(row.sum_rank);
+      }
+      let standardRanking = scores.map(rankings)
       let templateVars = {
-        rows: pollResult
+        rows: pollResult,
+        rankings: standardRanking
       }
       res.render('../views/results.ejs', templateVars);
     })
