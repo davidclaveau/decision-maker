@@ -37,10 +37,11 @@ module.exports = router;
 router.get('/:poll_id', (req, res) => {
   pollQueries.getOptions(req.params.poll_id)
     .then(options => {
+      let user_answer = req.cookies['user_answer']
       const templateVar = {
-        options
+        options,
+        user_answer
       }
-
       res.render('../views/poll.ejs', templateVar);
     })
     .catch(err => {
@@ -53,10 +54,9 @@ router.get('/:poll_id', (req, res) => {
 router.post('/:poll_id', (req, res) => {
 
   const voterName = req.body['voter_name'];
-
   const optionsArr = req.body['option_id'];
-
   let rankScore = 1;
+
   for (const option of optionsArr.reverse()) {
     pollQueries.postMyVotes(rankScore, parseInt(option), voterName)
     .then(() => {
@@ -69,6 +69,7 @@ router.post('/:poll_id', (req, res) => {
     rankScore ++;
   }
 
+  res.cookie('user_answer', req.body['option_id']);
 
 
 });

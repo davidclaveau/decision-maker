@@ -12,11 +12,27 @@ h1, h2, h3{
 
 table {
   display: flex;
+
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  padding: 10px
+
+}
+
+.rows {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+}
+
+.results {
+  display: flex;
   border: rgb(0, 0, 0) solid;
   border-radius: 25px;
-  margin: 0 10em;
-  justify-content: center
-
+  width: 700px;
+  margin: auto;
+  flex-direction: column;
+  padding: 10px
 }
 
 
