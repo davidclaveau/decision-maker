@@ -22,7 +22,7 @@ const sendCreatePollEmail = (name, email, resultsLink, submissionLink) => {
   };
   return mailgun.messages().send(data, (error, body) => {
     if (error) {
-      console.log("Error1:", error)
+      console.log("Error4:", error)
     }
     console.log("This should be sending emails:", body)
   });

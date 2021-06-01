@@ -21,6 +21,11 @@
     <h1>Create a Poll!</h1>
 
   <main>
+    <% if (user_id === -1) { %>
+      <div>
+        <p>Login!</p>
+      </div>
+    <% } else { %>
     <div class="create-poll">
       <section><!-- Left side where we create the poll -->
         <form action="/index" method="POST" id="poll-form">
@@ -36,7 +41,7 @@
             <button type="button" class="delete-0">Delete</button>
           </div>
         </container>
-        <button type="submit" id="howdy">Send My Poll</button>
+        <button type="submit">Send My Poll</button>
 
         </form>
       </section>
@@ -52,6 +57,7 @@
         <br>
       </section>
     </div>
+    <% } %>
   </main>
 
   <br>
