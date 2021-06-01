@@ -1,29 +1,34 @@
-h1{
+h1 {
   width: 500px;
   margin: 50px auto;
   text-align: center;
 }
-main{
+
+main {
   margin: 0 50px;
   display: flex;
   justify-content: center;
 }
 
-ul{
+ul {
   padding: 0;
 }
-li{
-  list-style:none;
+
+li {
+  list-style: none;
   display: flex;
   justify-content: space-between;
-
 }
-.bar{
+
+.bar {
   background-color: #abc;
   overflow-x: visible;
-  white-space:nowrap;
+  white-space: wrap;
 }
-.options-container{
+
+.options-container {
   border: 1px solid black;
   display: none;
 }
+
+/*# sourceMappingURL=user.css.map */

@@ -11,10 +11,9 @@ const userQueries = require('../lib/user-queries');
 
 // GET /users/:id
 router.get('/:id', (req, res) => {
-  //if cookie dosen't match url parameter, send an error menssage, and redirect to login page
+  //if cookie dosen't match url parameter, send an error menssage
   if (req.params.id !== req.cookies.user_id) {
-    res.status(401).send('You are not allowed');
-    res.redirect('/login');
+    res.status(401).send('You are not allowed! Please login first.');
   } else {
     userQueries.getAllPollByUserId(req.params.id)
       .then(user => {
