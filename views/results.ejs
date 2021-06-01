@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Results for Poll<%= rows[0]['poll_id'] %> </title>
+    <title>Results for Poll <%= rows[0]['poll_id'] %> </title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -16,20 +16,20 @@
     <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1>
     <div class="results">
     <h2> <%= rows[0]['name'] %> </h2>
-    <h3> The number of voters: <%= rows[0]['num_voters']%> </h3>
+    <h3> Participants: <%= rows[0]['num_voters']%> </h3>
 
     <table>
       <tr>
-        <!-- <th>option_id</th> -->
-        <th class="rows">title</th>
-        <!-- <th>sum_score</th> -->
-        <th class="rows">final_rank</th>
+
+        <th class="rows">Options</th>
+
+        <th class="rows">Rank</th>
       </tr>
 
     <% for (const rowIndex in rows) { %>
 
         <tr>
-          <!-- <td><%= rows[rowIndex]['option_id'] %></td> -->
+
           <td class="rows"><%= rows[rowIndex]['title'] %></td>
           <!-- <td><%= rows[rowIndex]['sum_rank'] %></td> -->
           <td class="rows"><%= parseInt(rowIndex) + 1 %></td>
@@ -39,6 +39,6 @@
 
     </table>
   </div>
-  </body>
   <%- include('partials/_footer') %>
+  </body>
 </html>

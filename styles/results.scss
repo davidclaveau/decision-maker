@@ -2,6 +2,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  // background: rgb(253,223,70);
+  // background: linear-gradient(90deg, rgba(253,223,70,1) 0%, rgba(69,215,181,1) 80%, rgba(24,214,210,1) 100%);
 }
 
 h1, h2, h3{
@@ -12,7 +14,7 @@ h1, h2, h3{
 
 table {
   display: flex;
-
+  table-layout: fixed;
   width: 100%;
   margin: auto;
   justify-content: center;
@@ -23,17 +25,34 @@ table {
 .rows {
   padding-right: 1.5em;
   padding-left: 1.5em;
+  text-align: center;
+  width: 50% ;
 }
 
 .results {
   display: flex;
-  border: rgb(0, 0, 0) solid;
+  border: #aaa solid;
   border-radius: 25px;
   width: 700px;
   margin: auto;
   flex-direction: column;
-  padding: 10px
+  padding: 10px;
+  background: rgb(253,229,70);
+  background: linear-gradient(90deg, rgba(253,229,70,1) 0%, rgba(69,215,172,1) 80%, rgba(24,200,214,1) 100%);
 }
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
 
 
 
