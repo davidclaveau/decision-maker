@@ -1,7 +1,7 @@
 /*
  * All routes for index are defined here
  * Since this file is loaded in server.js into /index,
- *   these routes are mounted onto /index
+ * these routes are mounted onto /index
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
@@ -18,7 +18,10 @@ router.get('/', (req, res) => {
 });
 
 /*
- Create a poll, while sorting all options and their descriptions. Then an object is created with the options and descriptions. These will be looped and queried for each option:description pair. Finally, a query for user and new poll to redirect user and send email.
+ Create a poll, while sorting all options and their descriptions.
+ Then an object is created with the options and descriptions.
+ These will be looped and queried for each option:description pair.
+ Finally, a query for user and new poll to redirect user and send email.
  */
 
 router.post('/', (req, res) => {
@@ -53,6 +56,7 @@ router.post('/', (req, res) => {
     // New query to get user and newly created poll id to redirect user and send email
     indexQueries.getIndexUserAndPoll(id)
       .then((response) => {
+        console.log("Success:", response.rows[0]);
         const responseObj = response.rows[0]
         const pollId = responseObj.poll_id;
         const name = responseObj.user_name;
@@ -60,7 +64,7 @@ router.post('/', (req, res) => {
         const resultsLink = `${url}/polls/${pollId}/results`
         const submissionLink = `${url}/polls/${pollId}`
 
-        sendCreatePollEmail(name, email, resultsLink, submissionLink);
+        // sendCreatePollEmail(name, email, resultsLink, submissionLink);
      })
   })
   .catch(err => {

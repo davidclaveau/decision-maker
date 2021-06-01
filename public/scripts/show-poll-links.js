@@ -1,6 +1,6 @@
 $(document).ready(() => {
   $('form').submit(() => {
-    $(".create-poll").remove();
+    $(".create-poll").hide();
   });
 
   $('main').append(`
