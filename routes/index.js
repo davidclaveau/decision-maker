@@ -13,47 +13,58 @@ const { sendCreatePollEmail } = require('../mailgun/sendEmails');
 // For mailgun email, replace with domain
 const url = `http://localhost:8080`
 
-// GET /index
 router.get('/', (req, res) => {
   res.render('index.ejs');
 });
 
 /*
- Create a poll, while finding all options and their descriptions. The options and descriptions will be passed to the query as arrays. These will then be looped in index-queries.js for each option and its respective description.
+ Create a poll, while sorting all options and their descriptions. Then an object is created with the options and descriptions. These will be looped and queried for each option:description pair. Finally, a query for user and new poll to redirect user and send email.
  */
-// POST /index
+
 router.post('/', (req, res) => {
   const name = req.body.pollName;
   const arr = Object.keys(req.body);
-  const optionsArr = [];
-  const descriptionsArr = [];
+  const optionsObj = {};
 
-  arr.forEach(element => {
-    if (element.startsWith("option")) {
-      optionsArr.push(req.body[element])
+  // Get each option and their description into an object
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].startsWith("option")) {
+      optionsObj[req.body[arr[i]]] = req.body[arr[i + 1]];
     }
-    if (element.startsWith("description")) {
-      descriptionsArr.push(req.body[element])
+  }
+
+  indexQueries.postIndexPoll(name, req.cookies.user_id)
+    .then((poll) => {
+      console.log("poll", poll);
+      return poll;
+    })
+  .then((poll) => {
+    const id = poll.id;
+
+    // Pass each option and description to insert in the options table
+    for (const key in optionsObj) {
+      indexQueries.postIndexOption(id, key, optionsObj[key])
     }
+
+    return id;
   })
+  .then((id) => {
 
-  indexQueries.postIndex(name, req.cookies.user_id, optionsArr, descriptionsArr)
-    .then(response => {
-      const responseObj = response.rows[0]
-      const pollId = responseObj.poll_id;
-      res.redirect(`/polls/${pollId}`);
-      return responseObj;
-    })
-    .then(obj => {
-      const pollId = obj.poll_id;
-      const name = obj.user_name;
-      const email = obj.user_email;
-      const resultsLink = `${url}/polls/${pollId}/results`
-      const submissionLink = `${url}/polls/${pollId}`
+    // New query to get user and newly created poll id to redirect user and send email
+    indexQueries.getIndexUserAndPoll(id)
+      .then((response) => {
+        const responseObj = response.rows[0]
+        const pollId = responseObj.poll_id;
+        const name = responseObj.user_name;
+        const email = responseObj.user_email;
+        const resultsLink = `${url}/polls/${pollId}/results`
+        const submissionLink = `${url}/polls/${pollId}`
 
-      sendCreatePollEmail(name, email, resultsLink, submissionLink);
-    })
-    .catch(err => {
+        sendCreatePollEmail(name, email, resultsLink, submissionLink);
+        res.redirect(`/polls/${pollId}`);
+     })
+  })
+  .catch(err => {
       console.log("Error:", err)
     });
 });
