@@ -4,9 +4,9 @@ $(document).ready(function() {
   $('.delete').each((function() {
     $(this).click(function() {
       const userId = $(this).parent().find('.userId').attr('value');
-      console.log(userId);
+      // console.log(userId);
       const pollId = $(this).attr('value');
-      console.log(pollId);
+      // console.log(pollId);
       const data = {
         pollId
       };
@@ -22,11 +22,4 @@ $(document).ready(function() {
   }))
 });
 
-//update poll
-// $(document).ready(function() {
-//   $('.edit').each((function() {
-//     $(this).click(function(){
 
-//     })
-//   }))
-// });

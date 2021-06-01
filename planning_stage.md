@@ -76,6 +76,12 @@ polls/:poll_id/results        get --- final count for votes ---Zio
 
 ### Monday:
 
+# Impove web page functions
+* /index                     ---David
+* /user/:user_id             ---Feng
+* /polls/:poll_id            ----Zio
+* /polls/:poll_id/results
+
 ### Tuesday:
 
 ### Wednesday:
