@@ -11,12 +11,13 @@ $(document).ready(() => {
    $(".delete-0").parent().remove();
  });
 
+ const $addOption = $("#add-option")
  const $optionInput = $("#option-input");
  const $descriptionInput = $("#description-input");
- const $options = $(".options")
+ const $options = $(".added-options-container")
  let optCount = 1
 
-  $("#add-option").click(() => {
+  const appendOption = () => {
     const option = $optionInput.val()
     const description = $descriptionInput.val()
     const opt = $(`
@@ -25,7 +26,9 @@ $(document).ready(() => {
         <input type="text" name="option${optCount}" required value="${option}"/>
         <span>Description:</span>
         <input type="text" name="description${optCount}" value="${description}"/>
-        <button type="button" class="delete-btn ${optCount}">Delete</button>
+        <button type="button" class="delete-btn ${optCount} delete-icon">
+          <i class="fas fa-trash-alt"></i>
+        </button>
       </div>
     `)
     $options.append(opt);
@@ -39,7 +42,11 @@ $(document).ready(() => {
     $optionInput.val("");
     $descriptionInput.val("");
     $optionInput.focus();
-  });
+  };
+
+  // Clicking or 'tabbing' to the add option will initate the append
+  $addOption.click((appendOption))
+  $addOption.focus((appendOption))
 
   /*
   * Uses Are-You-Sure jquery plugin to check if the form has been
