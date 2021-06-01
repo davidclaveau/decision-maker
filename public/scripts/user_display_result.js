@@ -1,7 +1,11 @@
 $(document).ready(function() {
   $('.poll').click(function() {
 
-    const optionsContainer = $(this).parent().find('.options-container');
+    //reset css
+    $('.options-container').css("display", "none");
+    $('.bar').css({ 'width': '0px' })
+
+    const optionsContainer = $(this).parents('.poll-container').find('.options-container');
 
     //if an option has no rank yet, remove background color of its bars
     if (!$(optionsContainer).find('.rank').html().split(' ').join('').split('\n').join('')) {
@@ -30,10 +34,14 @@ $(document).ready(function() {
       } else {
         scorePercentage = (score / totalScore * 100 + '%').split(' ').join('').split('\n').join('');
       }
-      $(this).animate({
-        'width': scorePercentage
-      }, 1000);
+      $(this).css({ 'width': scorePercentage })
     })
-
   })
+  //toggle options-container when clicked
+  $('.options-container').each((function() {
+    $(this).click(function() {
+      $(this).slideToggle(600);
+    })
+  }))
+
 });

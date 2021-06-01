@@ -4,4 +4,3 @@ public/styles
 .env
 *.log
 *.sqlite3
-db/seeds/05_test_seeds.sql
