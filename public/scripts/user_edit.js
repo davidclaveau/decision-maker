@@ -17,7 +17,7 @@ $(document).ready(function() {
           data: data
         }
       )
-        $(this).parents('.poll-container').remove();
+      $(this).parents('.poll-container').remove();
     })
   }))
 });
