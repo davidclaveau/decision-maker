@@ -46,11 +46,7 @@ router.get('/:id', (req, res) => {
   }
 });
 
-
-
-
 router.post('/:id', (req, res) => {
-
 
   userQueries.deletePoll(req.body.pollId)
     .catch(err => {

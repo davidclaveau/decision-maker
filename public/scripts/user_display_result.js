@@ -1,8 +1,8 @@
 $(document).ready(function() {
   $('.poll').click(function() {
 
-    //reset css
-    $('.options-container').css("display", "none");
+    //reset display
+    $('.options-container').hide();
     $('.bar').css({ 'width': '0px' })
 
     const optionsContainer = $(this).parents('.poll-container').find('.options-container');
