@@ -17,7 +17,7 @@
     <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1>
     <div class="results">
     <h2> <%= rows[0]['name'] %> </h2>
-    <h3> Total participants: <%= rows[0]['num_voters']%> </h3>
+    <h3> Total participants: <%= num %> </h3>
 
     <table>
       <tr>
@@ -32,7 +32,7 @@
         <tr>
 
           <td class="rows"><%= rows[rowIndex]['title'] %></td>
-          <td><%= rows[rowIndex]['sum_rank'] %></td>
+          <td><%= sum_rank[rowIndex] %></td>
           <td class="rows"><%= rankings[rowIndex] %></td>
         </tr>
 
@@ -51,7 +51,7 @@
               <%= rows[rowIndex]['title'] %>
             </div>
             <span class="rank">
-              <%= rows[rowIndex]['sum_rank'] %>
+              <%= sum_rank[rowIndex] %>
             </span>
           </li>
           <% } %>
