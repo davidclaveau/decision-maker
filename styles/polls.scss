@@ -101,6 +101,7 @@ $gray: #9b9b9b;
   background: transparent;
   transition: border-color 0.2s;
   margin-left: 0;
+  padding-top: 12px;
 
   &::placeholder {
     color: transparent;
@@ -120,6 +121,7 @@ $gray: #9b9b9b;
   transition: 0.2s;
   font-size: 1rem;
   color: $gray;
+
 }
 
 .form__field:focus {
@@ -131,8 +133,12 @@ $gray: #9b9b9b;
     font-size: 1rem;
     color: $primary;
     font-weight:700;
+
+
   }
+
   padding-bottom: 6px;
+  padding-top: 12px;
   font-weight: 700;
   border-width: 3px;
   border-image: linear-gradient(to right, $primary,$secondary);
@@ -140,7 +146,7 @@ $gray: #9b9b9b;
 }
 
 #no_blank {
-  color:rgb(82, 79, 79);
+  color:rgb(255, 0, 0);
 }
 
 #submit {

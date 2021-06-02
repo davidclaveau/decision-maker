@@ -42,8 +42,20 @@
   border-radius:50%;
   border:1px solid #ccc;
   margin:0 8px;
-  color:inherit;
   opacity:0.75;
+
+  .ion-social-youtube {
+    color: red
+  }
+  .ion-social-facebook {
+    color: rgb(7, 4, 216)
+  }
+
+  .ion-social-instagram {
+    color: #9b36b7
+  }
+
+
 }
 
 .footer-basic .social > a:hover {
