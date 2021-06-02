@@ -1,0 +1,102 @@
+
+// #header-wrapper{
+//   height: 100px;
+//   margin-bottom: 20px;
+//   width: 100vw;
+
+// }
+header{
+  width: 100vw;
+  border-bottom: 2px solid #2f3640;
+  background-color: #fff;
+  position: relative;
+nav{
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  line-height: 100px;
+  font-size: 18px;
+  color:#4b4b4b ;
+  font-weight: bolder;
+  }
+  img{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+  }
+}
+#logo{
+  // line-height: 100px;
+  // text-align: baseline;
+}
+// #logo span::first-letter{
+//   font-size: 200em;
+//   color: red;
+// }
+#left{
+display:none;
+
+}
+#right{
+  display: none;
+}
+#menu{
+width: 50px;
+text-align: center;
+i{
+  font-size: 40px;
+  color: #4b4b4b;
+}
+}
+#head-menu{
+  display: none;
+  position: absolute;
+  top:102px;
+  left:0;
+  list-style:none;
+  margin: 0;
+  padding:0;
+  width: 100vw;
+  height: 400px;
+  background-color: lightblue;
+  z-index:9999;
+
+  background: url(https://directpoll.com//wp-content/uploads/2016/01/gplaypattern.png)repeat scroll 0 0!important;
+  li{
+    margin: 15px 20px;
+    height: 40px;
+  }
+}
+button{
+margin: 0;
+padding: 0;
+border: none;
+background-color: transparent;
+}
+
+a{
+  text-decoration: none;
+  // color:#2f3640 ;
+}
+
+@media only screen and (min-width: 768px) {
+  nav{
+    margin:0 5vw;
+  }
+  #left{
+    display:block;
+  }
+  #right{
+    display: block;
+  }
+  #menu{
+    display: none;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  nav{
+    margin:0 20vw;
+  }
+}
