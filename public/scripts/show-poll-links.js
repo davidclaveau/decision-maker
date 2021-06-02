@@ -22,11 +22,33 @@ $(document).ready(() => {
       success: function(result) {
         pollId = result.id;
         $('main').append(`
-          <div class="poll-links">
-            <h1> This is where we can show the links</h1>
-            <p>Admin link <a href="${url}/polls/${pollId}/results">can be used here</a></p>
-            <p>Guest's link <a href="${url}/polls/${pollId}">can be used here</a></p>
-          </div>
+        <section class="poll-created">
+          <h1>Poll Created!</h1>
+            <div class="poll-links">
+              <container class="guest-link">
+                <h2>Share</h2>
+                <span>Start sharing your poll!</span>
+                <p><a href="${url}/polls/${pollId}">${url}/polls/${pollId}</a></p>
+                <a href="${url}/polls/${pollId}">
+                  <button id="share">
+                    Share
+                    <i class="far fa-paper-plane"></i>
+                  </button>
+                </a>
+              </container>
+              <container class="admin-link">
+                <h2>Results</h2>
+                <span>See the poll here!</span>
+                <p><a href="${url}/polls/${pollId}/results">${url}/polls/${pollId}/results</a></p>
+                <a href="${url}/polls/${pollId}/results">
+                  <button id="results">
+                    Results
+                    <i class="fas fa-chart-bar"></i>
+                  </button>
+                </a>
+              </container>
+            </div>
+          </section>
         `);
       }
     })
