@@ -26,17 +26,22 @@
     <%- include('partials/_header') %>
   </header>
   <main>
-    <h3>
+    <h1>
       <%= options[0].name %>
 
-    </h3>
+    </h1>
 
       <div class="name_field">
-        <label>Enter your name</label>
-      <input type='text' placeholder="Please input your name" name='voter_name' id='input_name'>
+
+        <div class="form__group field">
+          <input type="input" class="form__field" placeholder="Name" name="voter_name" id='input_name' required />
+          <label for="name" class="form__label">Name</label>
+        </div>
+
+      <!-- <input type='text' placeholder="Please input your name" name='voter_name' id='input_name'> -->
     </div>
     <div class="option_list">
-          <p id='no_blank'>Do Not Leave This Blank</p>
+          <p id='no_blank'>Enter Your Name Please!</p>
 
         <input type='text' name='poll_id' id='poll_id' hidden value="<%= options[0]['id'] %>">
 
@@ -57,12 +62,14 @@
               <% }%>
           </ul>
 
-
-          <% if (!user_answer) { %>
-            <button id="not_submit">submit</button>
-            <% }  else {%>
+            <% if (!poll_id) { %>
+            <button type="button" class="btn btn-primary" id="submit">Submit</button>
+            <% } else if (poll_id.includes(options[0]['id'])) { %>
               <p class='message'> You Have Already Submitted</p>
+            <% }  else {%>
+              <button type="button" class="btn btn-primary" id="submit">Submit</button>
               <% }%>
+
       </div>
 
 

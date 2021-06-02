@@ -29,13 +29,15 @@ ul{
   margin: auto;
   display:flex;
   justify-content: center;
+  font-size: 18px;
+
 }
 
 #sortable {
   padding: 0;
 }
 
-h3 {
+h1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,10 +55,7 @@ h3 {
   label {
     margin-top: 0.5em;
   }
-  input {
-    margin-left: 1em;
 
-  }
 }
 .option_list {
 
@@ -67,16 +66,86 @@ h3 {
 
 
   .option_title{
-    border-radius: 25px;
+    border-radius: 5px;
     border: 1px solid black;
     margin: 20px 0;
     background-color: aliceblue;
     padding-left: 1em;
     padding-right: 1em;
     justify-content: center;
+    font-size: 20px;
   }
 }
 
 
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin: auto;
+  width: 30%;
+}
 
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: rgb(82, 79, 79);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin-left: 0;
 
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;
+  }
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+
+#no_blank {
+  color:rgb(82, 79, 79);
+}
+
+#submit {
+  border-radius: 25px;
+  background-color: rgb(129, 160, 255);
+  border: none;
+
+}

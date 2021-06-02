@@ -1,7 +1,7 @@
 $(document).ready(() => {
   $('#no_blank').hide()
 
-  $('#not_submit').click(function(event) {
+  $('#submit').click(function(event) {
     event.stopPropagation();
     // alert("Do not re-submit your answer again!")
 

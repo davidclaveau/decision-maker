@@ -45,11 +45,13 @@ module.exports = router;
 router.get('/:poll_id', (req, res) => {
   pollQueries.getOptions(req.params.poll_id)
     .then(options => {
-      let user_answer = req.cookies['user_answer']
+      let poll_id = req.cookies['poll_id']
       const templateVar = {
         options,
-        user_answer
+        poll_id
       }
+      console.log("poll_id",poll_id)
+      console.log("options[0]['id']",typeof(options[0]['id']))
       res.render('../views/poll.ejs', templateVar);
     })
     .catch(err => {
@@ -59,13 +61,15 @@ router.get('/:poll_id', (req, res) => {
 
 // POST /polls/:poll_id
 // Submit my votes
+let cookiePoll = [];
 router.post('/:poll_id', (req, res) => {
   const voterName = req.body['voter_name'];
   const optionsArr = req.body['option_id'];
   let rankScore = 1;
-  const pollId = req.body['poll_id']
+  const pollId = req.body['poll_id'];
+  cookiePoll.push(parseInt(pollId))
 
-  res.cookie('user_answer', 'notNull');
+  res.cookie('poll_id', cookiePoll);
 
 
 
