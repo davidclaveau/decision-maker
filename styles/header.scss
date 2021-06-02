@@ -7,9 +7,10 @@
 // }
 header{
   width: 100vw;
-  border-bottom: 2px solid #2f3640;
+  border-bottom: 1px solid rgb(219, 220, 221);
   background-color: #fff;
   position: relative;
+  margin-bottom: 20px;
 nav{
   width: 90vw;
   margin: 0 auto;
@@ -26,6 +27,8 @@ nav{
     height: 50px;
     margin-right: 5px;
   }
+
+
 }
 #logo{
   // line-height: 100px;
@@ -67,14 +70,20 @@ i{
   li{
     margin: 15px 20px;
     height: 40px;
+    span{
+      color: red;
+    }
   }
 }
-button{
-margin: 0;
-padding: 0;
-border: none;
-background-color: transparent;
-}
+  button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    a{
+      color:#4b4b4b;
+    }
+   }
 
 a{
   text-decoration: none;
@@ -84,12 +93,17 @@ a{
 @media only screen and (min-width: 768px) {
   nav{
     margin:0 5vw;
+    font-size: 20px;
   }
   #left{
     display:block;
   }
   #right{
     display: block;
+
+    span{
+      color:red;
+    }
   }
   #menu{
     display: none;
