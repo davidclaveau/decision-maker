@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <!-- font awsome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <script type="text/javascript" src=""></script>
+
   <script type="text/javascript" src="/scripts/header.js"></script>
   <title></title>
 </head>
@@ -21,17 +21,17 @@
 <header>
   <nav>
     <div id="logo">
-      <img src="/styles/img/logo.png" alt="logo"><span>Decision Maker</span>
+      <img src="/img/logo.png" alt="logo"><span>Decision Maker</span>
     </div>
     <div id="left">
       <button><a href="/users/<%= userId%>">My Polls</a></button>
       <button><a href="/index">Create Polls</a></button>
     </div>
-    <div id="right"><span>Hello, <%= userName%></span><button><a href="">Log out</a></button></div>
+    <div id="right"><span>Hello, <%= userName%></span><button><a href="#">Log out</a></button></div>
     <div id="menu"><i class="fas fa-bars"></i>
       <ul id="head-menu">
         <li><span>Hello, <%= userName%></span></li>
-        <li><button>Log out</button></li>
+        <li><button><a href="#">Log out</a>          </button></li>
         <li><button><a href="/users/<%= userId%>">My Polls</a></button></li>
         <li><button><a href="/index">Create Polls</a></button></li>
       </ul>
