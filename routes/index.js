@@ -16,15 +16,12 @@ const url = `http://localhost:8080`
 router.get('/', (req, res) => {
   const templateVars = {};
 
-  if (!req.cookies.user_id) {
-    templateVars["user_id"] = -1;
-  } else {
-    templateVars["user_id"] = req.cookies.user_id;
-  }
-
-  console.log("templateVars", templateVars)
-
-  res.render('index.ejs', templateVars);
+  indexQueries.getUser(req.cookies.user_id)
+    .then((user) => {
+      templateVars["userId"] = user.id;
+      templateVars["userName"] = user.name;
+      res.render('index.ejs', templateVars);
+    })
 });
 
 /*

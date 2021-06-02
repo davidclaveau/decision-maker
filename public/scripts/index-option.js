@@ -21,11 +21,6 @@ $(document).ready(() => {
     const option = $optiontextarea.val()
     const description = $descriptiontextarea.val()
 
-
-    if (option.length > 255 || description.length > 255) {
-      console.log("Length too long!");
-    }
-
     const opt = $(`
       <div class="option ${optCount}">
         <div class="option-container">

@@ -23,7 +23,7 @@
 
   <body>
     <main class="main">
-      <% if (user_id === -1) { %>
+      <% if (userId === -1) { %>
 
         <div>
           <p>Login!</p>
@@ -33,6 +33,8 @@
 
         <section class="create-poll"><!-- Poll option -->
           <h1>Create a Poll!</h1>
+
+          <div class="error-message"></div>
 
           <form action="/index" method="POST" id="poll-form">
 

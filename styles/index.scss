@@ -161,6 +161,16 @@ button#add-option {
   }
 }
 
+// Error handling
+div.error-message {
+  display: none;
+  color: red;
+  padding: 0.4em;
+  margin-bottom: 1em;
+  border: 3px solid red;
+  background-color: lightgoldenrodyellow;
+}
+
 // Links page when rendered
 .poll-created {
   display: flex;
