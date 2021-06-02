@@ -49,7 +49,18 @@ router.get("/:poll_id/results", (req, res) => {
             templateVars.sum_rank = scores;
           }
 
-          res.render("../views/results.ejs", templateVars);
+          pollQueries.getUserNameEmailUserid(req.params.poll_id)
+      .then((data) => {
+        templateVars.userId = data[0].user_id
+        templateVars.userName = data[0].user_name
+
+        res.render("../views/results.ejs", templateVars);
+      })
+
+
+
+
+
         })
         .catch((err) => {
           console.log("SometingWrong Here 3", err);
@@ -73,7 +84,15 @@ router.get("/:poll_id", (req, res) => {
         options,
         poll_id,
       };
-      res.render("../views/poll.ejs", templateVar);
+      pollQueries.getUserNameEmailUserid(req.params.poll_id)
+      .then((data) => {
+        templateVar.userId = data[0].user_id
+        templateVar.userName = data[0].user_name
+
+        res.render("../views/poll.ejs", templateVar);
+      })
+
+
     })
     .catch((err) => {
       console.log("err", err.message);
