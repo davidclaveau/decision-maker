@@ -5,7 +5,7 @@
   flex-direction: column;
 }
 
-input {
+textarea {
   background-color: rgb(242, 242, 242);
   border: none;
 
@@ -20,7 +20,7 @@ input {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  padding: 5%;
+  padding: 2em;
 
   form#poll-form {
     display: flex;
@@ -28,12 +28,55 @@ input {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin: 5%;
+    margin: 2em;
 
     button#submit-button {
       display: flex;
       justify-content: center;
-      margin-top: 5%;
+      margin-top: 2em;
+      background: rgb(36, 179, 36);
+      width: 9em;
+      color: white;
+      border: none;
+      padding: 1%;
+      cursor: pointer;
+
+        i {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          padding: 3% 0 0 10%;
+        }
+
+        &:hover {
+          @keyframes bounce {
+            0% {
+              transform: translateY(0px);
+            }
+
+            25% {
+              transform: translateY(3px);
+            }
+
+            50% {
+              transform: translateY(0px);
+            }
+
+            75% {
+              transform: translateY(-3px);
+            }
+
+            100% {
+              transform: translateY(0px);
+            }
+          }
+          i.fa-paper-plane{
+            animation-name: bounce;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+          }
+        }
     }
   }
 }
@@ -43,24 +86,29 @@ input {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-bottom: 5%;
+  padding: 0 3.1em 1em 0;
+  margin-left: 2.7em;
   width: 60%;
 
-  input#poll-name {
+  textarea#poll-name {
     width: 100%
   }
 }
 
-.added-options-container .options-input-container {
+.added-options-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 60%;
+}
 
-  input {
-    width: 100%;
-  }
+.add-more-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
 }
 
 button.delete-icon {
@@ -70,9 +118,11 @@ button.delete-icon {
 
   background: none;
   color: red;
-  font-size: 17px;
+  font-size: 24px;
   border: none;
   cursor: pointer;
+  margin-left: 0.7em;
+  margin-top: 1em;
 
   &:focus {
     outline:none;
@@ -86,12 +136,14 @@ button#add-option {
 
   background: none;
   color: cornflowerblue;
-  font-size: 17px;
+  font-size: 24px;
   border: none;
   cursor: pointer;
+  margin-left: 0.7em;
+  margin-top: 1em;
 
   &:focus {
-    outline:none;
+    outline: none;
   }
 }
 
@@ -99,29 +151,92 @@ button#add-option {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2% 0;
+  padding: 1em 0;
+  width: 100%;
+  margin-left: 2.7em;
 
   span {
-    padding: 0 2%
+    display: flex;
+    justify-content: center;
+  }
+
+  .option-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 2.5%;
+
+    textarea {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  .description-container {
+    display: flex;
+    // align-items: center; <-- makes one box resize while other stays the same
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 2.5%;
+
+    textarea {
+      margin: 0;
+      width: 100%;
+    }
   }
 }
 
 // 420px,768px and 1024px.
 
+
+@media screen and (max-width: 900px) {
+  .poll-name-container {
+    width: 80%;
+  }
+  .added-options-container {
+    width: 80%;
+  }
+  .add-more-options {
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .poll-name-container {
+    width: 90%;
+  }
+  .added-options-container {
+    width: 90%;
+  }
+  .add-more-options {
+    width: 90%;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .poll-name-container {
+    padding: 0 0 2em 0;
+    margin: 0;
+  }
+
   .option {
     flex-direction: column;
+    padding: 0 0 2em 0;
+    margin: 0;
 
     span {
-      padding: 2%;
+      padding: 0;
     }
 
-    button {
-      padding: 8%;
+    .option-container {
+      margin-bottom : 1em;
+    }
 
-      i {
-        font-size: 27px;
-      }
+    .description-container {
+      margin: 0;
     }
   }
 }

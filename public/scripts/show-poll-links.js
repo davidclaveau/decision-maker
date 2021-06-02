@@ -31,6 +31,9 @@ $(document).ready(() => {
       }
     })
 
-     ajaxPost.done(() => ajaxGet);
+    // Wait until post is complete, then retrieve last poll
+     $.when(ajaxPost).done(() => {
+       ajaxGet
+      });
   });
 });

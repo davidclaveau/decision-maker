@@ -37,50 +37,28 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const name = req.body.pollName;
   const arr = Object.keys(req.body);
-  const optionsObj = {};
+  const optionsArr = [];
 
-  console.log("arr.length", arr.length)
-
-  // Get each option and their description into an object
+  //
   for (let i = 1; i < arr.length; i++) {
     if (arr[i].startsWith("option")) {
-      optionsObj[req.body[arr[i]]] = req.body[arr[i + 1]];
+      const optionObj = {};
+
+      optionObj[req.body[arr[i]]] = req.body[arr[i + 1]];
+      optionsArr.push(optionObj)
     }
   }
+
 
   indexQueries.postIndexPoll(name, req.cookies.user_id)
     .then((poll) => {
       return poll;
     })
-  .then((poll) => {
-    const id = poll.id;
+    .then((poll) => {
+      const id = poll.id;
+      indexQueries.postIndexOption(id, optionsArr)
 
-    console.log("optionsObj", optionsObj)
-
-    // Pass each option and description to insert in the options table
-    for (const key in optionsObj) {
-      indexQueries.postIndexOption(id, key, optionsObj[key])
-      console.log("each option")
-    }
-  })
-  // .then((id) => {
-
-  //   // New query to get user and newly created poll id to redirect user and send email
-  //   indexQueries.getIndexUserAndPoll(id)
-  //     .then((response) => {
-  //       console.log("Success:", response.rows[0]);
-  //       const responseObj = response.rows[0]
-  //       const pollId = responseObj.poll_id;
-  //       const name = responseObj.user_name;
-  //       const email = responseObj.user_email;
-  //       const resultsLink = `${url}/polls/${pollId}/results`
-  //       const submissionLink = `${url}/polls/${pollId}`
-
-
-  //       // sendCreatePollEmail(name, email, resultsLink, submissionLink);
-  //       return response.rows[0]
-  //    })
-  // })
+    })
   .catch(err => {
       console.log("Error1:", err)
     });

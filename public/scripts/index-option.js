@@ -1,6 +1,6 @@
 $(document).ready(() => {
   /*
-  * Allow users to input as many options as they like.
+  * Allow users to textarea as many options as they like.
   * Creates a variable with the div for each option and description.
   * After the div is appended, we can access the button using
   * the variable (opt) and delete each option individually
@@ -8,27 +8,37 @@ $(document).ready(() => {
 
  // Delete placeholder element
  $(".delete-0").click(() => {
-   $(".delete-0").parent().remove();
+   $(".0").remove();
  });
 
  const $addOption = $("#add-option")
- const $optionInput = $("#option-input");
- const $descriptionInput = $("#description-input");
+ const $optiontextarea = $("#option-textarea");
+ const $descriptiontextarea = $("#description-textarea");
  const $options = $(".added-options-container")
  let optCount = 1
 
   const appendOption = () => {
-    const option = $optionInput.val()
-    const description = $descriptionInput.val()
+    const option = $optiontextarea.val()
+    const description = $descriptiontextarea.val()
+
+
+    if (option.length > 255 || description.length > 255) {
+      console.log("Length too long!");
+    }
+
     const opt = $(`
       <div class="option ${optCount}">
-        <span>Option:</span>
-        <input type="text" name="option${optCount}" required value="${option}"/>
-        <span>Description:</span>
-        <input type="text" name="description${optCount}" value="${description}"/>
-        <button type="button" class="delete-btn ${optCount} delete-icon">
-          <i class="fas fa-trash-alt"></i>
-        </button>
+        <div class="option-container">
+          <span>Option</span>
+          <textarea type="text" name="option${optCount}" class="opt-txt" required>${option}</textarea>
+        </div>
+        <div class="description-container">
+          <span>Description</span>
+          <textarea type="text" name="description${optCount}" class="desc-txt">${description}</textarea>
+        </div>
+          <button type="button" class="delete-btn ${optCount} delete-icon">
+            <i class="fas fa-trash-alt"></i>
+          </button>
       </div>
     `)
     $options.append(opt);
@@ -39,12 +49,12 @@ $(document).ready(() => {
     });
 
     optCount++;
-    $optionInput.val("");
-    $descriptionInput.val("");
-    $optionInput.focus();
+    $optiontextarea.val("");
+    $descriptiontextarea.val("");
+    $optiontextarea.focus();
   };
 
-  // Clicking or 'tabbing' to the add option will initate the append
+  // Clicking or 'tabbing' to the add buttn will initate the append
   $addOption.click((appendOption))
   $addOption.focus((appendOption))
 
