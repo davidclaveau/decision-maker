@@ -18,6 +18,9 @@
   <script type="text/javascript" src="/scripts/submit_poll.js"></script>
   <script type="text/javascript" src="/scripts/poll_display_description.js"></script>
 
+   <!-- font awsome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
 </head>
 
@@ -49,6 +52,7 @@
           <%for(let i in options){ %>
             <div>
               <li class="option_title">
+                <i class="far fa-hand-point-right"></i>
                 <input type='text' name='option_id' class='option_id' hidden value="<%= options[i]['option_id'] %>">
                 <%= options[i].title %>
               </input>
@@ -63,7 +67,9 @@
           </ul>
 
             <% if (!poll_id) { %>
-            <button type="button" class="btn btn-primary" id="submit">Submit</button>
+            <button type="button" class="btn btn-primary" id="submit">Submit<i class="far fa-paper-plane"></i></button>
+
+
             <% } else if (poll_id.includes(options[0]['id'])) { %>
               <p class='message'> You Have Already Submitted</p>
             <% }  else {%>
@@ -71,7 +77,6 @@
               <% }%>
 
       </div>
-
 
 
 

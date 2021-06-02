@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles/results.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/result_display.js"></script>
   </head>
   <%- include('partials/_header') %>
   <body>
@@ -40,8 +41,22 @@
     </table>
 
 
+    <div class="options-container">
 
 
+      <ul>
+        <% for (const rowIndex in rows) { %>
+          <li>
+            <div class="bar">
+              <%= rows[rowIndex]['title'] %>
+            </div>
+            <span class="rank">
+              <%= rows[rowIndex]['sum_rank'] %>
+            </span>
+          </li>
+          <% } %>
+      </ul>
+    </div>
 
 
 

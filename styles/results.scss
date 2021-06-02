@@ -60,8 +60,43 @@ tbody td {
 
 
 
+//bar chart
 
+.options-container{
+  width: 90%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: auto;
+  margin-bottom: 20px;
 
+  font-size:20px;
 
+  span{
+  display: block;
+  margin: 5px 0;
+  }
+
+  padding: 10px;
+
+}
+
+ul{
+  padding: 0;
+  margin-bottom: 0;
+}
+li{
+  list-style:none;
+  display: flex;
+  justify-content: space-between;
+}
+.bar{
+  background-color: #ff9f43;
+  overflow-x: visible;
+  white-space:nowrap;
+  margin: 2px;
+  padding-left: 3px;
+  width: 0;
+  transition: width 1s
+}
 
 
