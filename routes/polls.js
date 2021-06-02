@@ -89,6 +89,7 @@ router.post("/:poll_id", (req, res) => {
   let rankScore = 1;
   const pollId = req.body["poll_id"];
   cookiePoll.push(parseInt(pollId));
+  // console.log(pollId)
 
   res.cookie("poll_id", cookiePoll);
 
@@ -101,6 +102,7 @@ router.post("/:poll_id", (req, res) => {
     rankScore++;
   }
 
+
   pollQueries
     .getUserNameEmailUserid(parseInt(pollId))
     .then((res) => {
@@ -108,10 +110,10 @@ router.post("/:poll_id", (req, res) => {
       const name = resObj.user_name;
       const email = resObj.user_email;
       const userId = resObj.user_id;
-
       const resultsLink = `${url}/polls/${pollId}/results`;
+      // console.log(resultsLink)
       const usersLink = `${url}/users/${userId}`;
-      sendPollSubmissionEmail(name, email, resultsLink, usersLink);
+      // sendPollSubmissionEmail(name, email, resultsLink, usersLink);
       res.end;
     })
     .catch((err) => {

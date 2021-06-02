@@ -12,14 +12,21 @@ h1, h2, h3{
   margin: 0;
 }
 
+.winner {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  color: rgb(20, 134, 241);
+}
+
 table {
   display: flex;
   table-layout: fixed;
-  width: 100%;
+  width: 90%;
   margin: auto;
   justify-content: center;
   padding: 10px;
-
+  margin-bottom: 2em;
 
 }
 
@@ -45,12 +52,16 @@ table {
 th {
   letter-spacing: 2px;
   font-size: 25px;
+  border: 1px solid black;
+  border-radius: 5px;
 
 }
 
 td {
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 18px;
+  border: 1px solid black;
+  border-radius: 5px;
 
 }
 
@@ -68,7 +79,6 @@ tbody td {
   border-radius: 5px;
   margin: auto;
   margin-bottom: 20px;
-
   font-size:20px;
 
   span{
@@ -97,6 +107,12 @@ li{
   padding-left: 3px;
   width: 0;
   transition: width 1s
+}
+
+.fa-trophy {
+  padding-top: 8px;
+  margin-left: 5px;
+  color: gold;
 }
 
 

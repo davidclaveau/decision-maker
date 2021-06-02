@@ -10,6 +10,8 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/result_display.js"></script>
+       <!-- font awsome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </head>
   <%- include('partials/_header') %>
   <body>
@@ -18,6 +20,9 @@
     <div class="results">
     <h2> <%= rows[0]['name'] %> </h2>
     <h3> Total participants: <%= num %> </h3>
+    <% if (num != 0) { %>
+    <p class="winner"><%= rows[0]['title'] %> For The Win! <i class="fas fa-trophy"></i> </p>
+    <% } %>
 
     <table>
       <tr>

@@ -76,8 +76,15 @@ h1 {
     font-size: 20px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    cursor: pointer;
 
   }
+
+  .option_title:hover{
+    box-shadow: 2.5px 5px ;
+  }
+
+
 }
 
 
