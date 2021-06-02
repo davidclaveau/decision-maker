@@ -6,7 +6,6 @@ $(document).ready(() => {
     const $form = $("form");
     const serialized = ($form.serialize());
     const url = 'http://localhost:8080'
-    console.log("url", url);
 
     // Post the form to the database
     const ajaxPost = $.ajax({
@@ -21,13 +20,56 @@ $(document).ready(() => {
       url: "/index/links",
       success: function(result) {
         pollId = result.id;
-        $('main').append(`
-          <div class="poll-links">
-            <h1> This is where we can show the links</h1>
-            <p>Admin link <a href="${url}/polls/${pollId}/results">can be used here</a></p>
-            <p>Guest's link <a href="${url}/polls/${pollId}">can be used here</a></p>
-          </div>
-        `);
+        const linksRender = $(`
+          <section class="poll-created">
+            <h1>Poll Created!</h1>
+              <div class="poll-links">
+                <container class="guest-link">
+                  <h2>Share</h2>
+                  <span>Start sharing your poll!</span>
+                  <p class="copy-text" data-text="${url}/polls/${pollId}">
+                    <span class="link-break">
+                      <a href="${url}/polls/${pollId}">${url}/polls/${pollId}</a>
+                    </span>
+                  </p>
+                  <button id="copy">
+                    Copy
+                    <i class="far fa-clipboard"></i>
+                  </button>
+                </container>
+                <container class="admin-link">
+                  <h2>Results</h2>
+                  <span>See the poll here!</span>
+                  <p>
+                    <span class="link-break">
+                      <a href="${url}/polls/${pollId}/results">${url}/polls/${pollId}/results</a>
+                    </span>
+                  </p>
+                  <a href="${url}/polls/${pollId}/results">
+                    <button id="results">
+                      Results
+                      <i class="fas fa-chart-bar"></i>
+                    </button>
+                  </a>
+                </container>
+              </div>
+            </section>
+        `)
+
+        $("main").append(linksRender);
+        // history.pushState(`${url}/index/links`,"Your Links",'/#link-page');
+
+        // Copy to clipboard function for sharing link
+        linksRender.on("click", "#copy", () => {
+          const $copyText = $(".copy-text")
+          const copy = $copyText.attr("data-text")
+          copyToClipboard(copy);
+
+          $("#copy").html(`
+            Copied!
+            <i class="far fa-paper-plane"></i>
+          `);
+        })
       }
     })
 
