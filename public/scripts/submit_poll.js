@@ -5,6 +5,8 @@ $(document).ready(() => {
     event.stopPropagation();
     // alert("Do not re-submit your answer again!")
 
+
+
     const voter_name = $('#input_name')[0].value;
     let poll_id = $('#poll_id')[0].value
     let option_id = [];
@@ -18,20 +20,23 @@ $(document).ready(() => {
       option_id
     }
 
-/*     if (!voter_name) {
+    if (!voter_name) {
+      $('#no_blank').show().delay(1500).fadeOut(1)
+    } else {
+      $.ajax(
+       {
+         url: `/polls/${poll_id}`,
+         method: 'POST',
+         data: data
+       }
+     )
 
-    } */
+     $(this).replaceWith("<p class='message'>Submission Successful</p>")
 
 
-     $.ajax(
-      {
-        url: `/polls/${poll_id}`,
-        method: 'POST',
-        data: data
-      }
-    )
+    }
 
-    $(this).replaceWith("<p class='message'>Submission Successful</p>")
+
 
   })
 

@@ -65,10 +65,10 @@ router.post('/:poll_id', (req, res) => {
   let rankScore = 1;
   const pollId = req.body['poll_id']
 
-  console.log(res.cookie('user_answer', req.body['voter_name']));
-  console.log("I am there");
   res.cookie('user_answer', 'notNull');
-  console.log("I am here");
+
+
+
 
   for (const option of optionsArr.reverse()) {
     pollQueries.postMyVotes(rankScore, parseInt(option), voterName)
@@ -94,6 +94,10 @@ router.post('/:poll_id', (req, res) => {
   .catch(err => {
     console.log("Error:", err)
   });
+
+  res.json({
+    message: "Success!"
+  })
 
 });
 
