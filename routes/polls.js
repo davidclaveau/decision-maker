@@ -88,7 +88,7 @@ router.post('/:poll_id', (req, res) => {
 
     const resultsLink = `${url}/polls/${pollId}/results`
     const usersLink = `${url}/users/${userId}`
-    // sendPollSubmissionEmail(name, email, resultsLink, usersLink);
+    sendPollSubmissionEmail(name, email, resultsLink, usersLink);
     res.end
   })
   .catch(err => {
