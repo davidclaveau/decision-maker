@@ -1,11 +1,11 @@
-h3{
-  width: 400px;
+h6{
+  width: 80vw;
   margin: 50px auto;
   text-align: center;
-  margin-bottom: 100px;
+
 }
 main{
-  margin: 0 20px;
+  margin: 20px 20px;
   display: flex;
   justify-content: center;
 
@@ -31,7 +31,7 @@ main{
   padding: 2px 2px;
 
   i{
-  margin: auto 0;
+  margin: auto 5px;
   color: #353b48;
   }
 
@@ -89,8 +89,11 @@ li{
 main{
   margin:0 5vw;
 }
-h3{
-  margin: 200px auto;
+body{
+  h6{
+    margin: 50px auto;
+    font-size: 30px;
+  }
 }
 .poll-container{
   display: flex;
@@ -100,7 +103,6 @@ h3{
     width: 45%;
     font-size: 19px;
     margin:5px 5px;
-
   }
   .options-container{
     width: 52%;
@@ -111,17 +113,19 @@ h3{
   }
   }
 }
-
-
 @media only screen and (min-width: 1024px) {
   main{
     margin:0 20vw;
+  }
+  body{
+    h6{
+      font-size: 40px;
+    }
   }
   .poll-container{
     .poll-title-container{
       width: 45%;
       font-size: 24px;
-
     }
     .options-container{
       width: 50%;

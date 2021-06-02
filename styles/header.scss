@@ -1,16 +1,17 @@
 
-// #header-wrapper{
-//   height: 100px;
-//   margin-bottom: 20px;
-//   width: 100vw;
-
-// }
+#header-wrapper{
+position: relative;
+height: 100px;
+margin-bottom: 20px;
+}
 header{
   width: 100vw;
   border-bottom: 1px solid rgb(219, 220, 221);
   background-color: #fff;
   position: relative;
   margin-bottom: 20px;
+  position: fixed;
+  z-index: 999;
 nav{
   width: 90vw;
   margin: 0 auto;
@@ -22,22 +23,28 @@ nav{
   color:#4b4b4b ;
   font-weight: bolder;
   }
+
+}
+#logo{
+  display:flex;
+  align-content: center;
   img{
     width: 50px;
     height: 50px;
     margin-right: 5px;
+    vertical-align: middle;
+    // vertical-align: middle;
+    // display: table-cell;
+    // text-align: center;
+    align-items: center;
   }
+  span:first-letter{
+  font-size: 30px;
+  color: #b33939;
+}
+}
 
 
-}
-#logo{
-  // line-height: 100px;
-  // text-align: baseline;
-}
-// #logo span::first-letter{
-//   font-size: 200em;
-//   color: red;
-// }
 #left{
 display:none;
 
@@ -47,10 +54,10 @@ display:none;
 }
 #menu{
 width: 50px;
-text-align: center;
 i{
   font-size: 40px;
   color: #4b4b4b;
+  vertical-align:middle;
 }
 }
 #head-menu{
@@ -65,7 +72,6 @@ i{
   height: 400px;
   background-color: lightblue;
   z-index:9999;
-
   background: url(https://directpoll.com//wp-content/uploads/2016/01/gplaypattern.png)repeat scroll 0 0!important;
   li{
     margin: 15px 20px;
@@ -87,22 +93,23 @@ i{
 
 a{
   text-decoration: none;
-  // color:#2f3640 ;
 }
 
 @media only screen and (min-width: 768px) {
   nav{
     margin:0 5vw;
-    font-size: 20px;
   }
   #left{
-    display:block;
+    width: 20vw;
+    display:flex;
+    justify-content: space-between;
   }
   #right{
     display: block;
 
     span{
       color:red;
+      margin: 0 15px;
     }
   }
   #menu{
@@ -112,5 +119,14 @@ a{
 @media only screen and (min-width: 1024px) {
   nav{
     margin:0 20vw;
+    span{
+      font-size: 20px;
+    }
+    a{
+      font-size: 20px;
+    }
+  }
+  #left{
+    width: 24vw;
   }
 }
