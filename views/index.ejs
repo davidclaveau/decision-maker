@@ -5,7 +5,10 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/index-option.js"></script>
@@ -18,41 +21,67 @@
   <%- include('partials/_header') %>
 
   <body>
-    <h1>Create a Poll!</h1>
+    <main class="main">
+      <% if (user_id === -1) { %>
 
-  <main>
-    <div class="create-poll">
-      <section><!-- Left side where we create the poll -->
-        <form action="/index" method="POST" id="poll-form">
-          Poll Name:
-          <input type="text" name="pollName" id="poll-name" required placeholder="Ex. What's your favourite colour?" />
-        <br>
-        <container class ="options">
-          <div class="option 0">
-            <span>Option:</span>
-            <input type="text" name="option0" required placeholder="Ex. Chartreuse" />
-            <span>Description:</span>
-            <input type="text" name="description0"  placeholder="Ex. What a lovely colour!" />
-            <button type="button" class="delete-0">Delete</button>
-          </div>
-        </container>
-        <button type="submit" id="howdy">Send My Poll</button>
+        <div>
+          <p>Login!</p>
+        </div>
 
-        </form>
-      </section>
+      <% } else { %>
 
-      <section><!-- Right side where we add the options -->
-        <br>
-        Input option title:
-        <input type="text" name="option" id="option-input" />
-        <br>
-        Input option description:
-        <input type="text" name="description" id="description-input" />
-        <button type="submit" id="add-option">Add Option</button>
-        <br>
-      </section>
-    </div>
-  </main>
+        <section class="create-poll"><!-- Poll option -->
+          <h1>Create a Poll!</h1>
+
+          <form action="/index" method="POST" id="poll-form">
+
+            <div class="poll-name-container">
+              <p>Poll Name</p>
+              <textarea type="text" name="pollName" id="poll-name" required placeholder="Ex. What's your favourite colour?"></textarea>
+            </div>
+
+            <container class ="added-options-container">
+              <div class="option 0">
+                <div class="option-container">
+                  <span>Option:</span>
+                  <textarea type="text" name="option0" class="opt-txt" required placeholder="Ex. Chartreuse"></textarea>
+                </div>
+                <div class="description-container">
+                  <span>Description:</span>
+                  <textarea type="text" name="description0" class="desc-txt"  placeholder="Ex. What a lovely colour!"></textarea>
+                </div>
+                <button type="button" class="delete-0 delete-icon">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </container>
+
+            <container class="add-more-options">
+              <div class="option">
+                <div class="option-container">
+                  <span>Add an option:</span>
+                  <textarea type="text" name="new-option" id="option-textarea" class="opt-txt"></textarea>
+                </div>
+                <div class="description-container">
+                  <span>Add a description:</span>
+                  <textarea type="text" name="new-description" id="description-textarea" class="desc-txt"></textarea>
+                </div>
+                <button type="button" id="add-option">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </container>
+
+            <button type="submit" id="submit-button">
+              <span>Create Poll</span>
+              <i class="far fa-paper-plane"></i>
+            </button>
+          </form>
+        </section>
+
+        </section>
+      <% } %>
+    </main>
 
   <br>
   <br>

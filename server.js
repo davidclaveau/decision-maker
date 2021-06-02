@@ -50,7 +50,17 @@ app.use("/login", loginRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  const templateVars = {};
+
+  if (!req.cookies.user_id) {
+    templateVars["user_id"] = -1;
+  } else {
+    templateVars["user_id"] = req.cookies.user_id;
+  }
+
+  console.log("templateVars", templateVars)
+
+  res.render('index.ejs', templateVars);
 });
 
 app.listen(PORT, () => {
