@@ -33,6 +33,7 @@ textarea {
     button#submit-button {
       display: flex;
       justify-content: center;
+      align-items: center;
       margin-top: 2em;
       background: rgb(36, 179, 36);
       width: 9em;
@@ -40,6 +41,7 @@ textarea {
       border: none;
       padding: 1%;
       cursor: pointer;
+      border-radius: 5px;
 
         i {
           display: flex;
@@ -111,7 +113,7 @@ button#add-option {
   border: none;
   cursor: pointer;
   margin-left: 0.7em;
-  margin-top: 1em;
+  margin-top: 1.2em;
 
   &:focus {
     outline: none;
@@ -126,7 +128,7 @@ button#add-option {
   width: 100%;
   margin-left: 2.7em;
 
-  span {
+  h6 {
     display: flex;
     justify-content: center;
   }
@@ -201,12 +203,16 @@ button#add-option {
     border: rgb(203, 203, 203) 0.1px solid;
     }
 
-    a {
-      text-decoration: none;
+  a {
+    text-decoration: none;
 
-      &:hover {
-        text-decoration: none;
-      }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .link-break {
+    word-break: break-word;
   }
 
   button {
@@ -220,6 +226,7 @@ button#add-option {
     padding: 1%;
     cursor: pointer;
     height: 2.2em;
+    border-radius: 5px;
 
     i {
       display: flex;
@@ -271,6 +278,12 @@ button#add-option {
           animation-duration: 1s;
           animation-iteration-count: infinite;
         }
+
+        i.fa-clipboard {
+          animation-name: grow;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+        }
     }
   }
 }
@@ -299,6 +312,24 @@ button#add-option {
   .add-more-options {
     width: 90%;
   }
+
+  .poll-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .guest-link {
+      height: 18em;
+      width: 70%;
+    }
+
+    .admin-link {
+      height: 18em;
+      width: 70%;
+    }
+  }
 }
 
 
@@ -323,6 +354,24 @@ button#add-option {
 
     .description-container {
       margin: 0;
+    }
+  }
+
+  #submit-button {
+    width: 10em;
+    height: 3em;
+  }
+
+  .poll-links {
+
+    .guest-link {
+      height: 18em;
+      width: 85%;
+    }
+
+    .admin-link {
+      height: 18em;
+      width: 85%;
     }
   }
 }

@@ -29,11 +29,11 @@ $(document).ready(() => {
     const opt = $(`
       <div class="option ${optCount}">
         <div class="option-container">
-          <span>Option</span>
+          <h6>Option</h6>
           <textarea type="text" name="option${optCount}" class="opt-txt" required>${option}</textarea>
         </div>
         <div class="description-container">
-          <span>Description</span>
+          <h6>Description</h6>
           <textarea type="text" name="description${optCount}" class="desc-txt">${description}</textarea>
         </div>
           <button type="button" class="delete-btn ${optCount} delete-icon">
