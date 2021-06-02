@@ -1,21 +1,38 @@
 $(document).ready(() => {
+  $('#no_blank').hide()
 
-  $('#not_submit').click((event) => {
+  $('#not_submit').click(function(event) {
     event.stopPropagation();
-    alert("Do not re-submit your answer again!")
+    // alert("Do not re-submit your answer again!")
 
-
-
-   /*  let votes = {};
-    let ranknum = 1;
-    const results = $('.option_title')
-    console.log(results)
-    for (const child of results) {
-      votes[child.childNodes[0].nodeValue.split(" ").join("").split("\n").join("")] = ranknum;
-      ranknum ++;
-      // alert(child.childNodes[0].nodeValue);
+    const voter_name = $('#input_name')[0].value;
+    let poll_id = $('#poll_id')[0].value
+    let option_id = [];
+    let inputArr = $('.option_id')
+    for (const eachInput of inputArr) {
+      option_id.push(eachInput.value)
     }
-    console.log(votes); */
+    const data = {
+      voter_name,
+      poll_id,
+      option_id
+    }
+
+/*     if (!voter_name) {
+
+    } */
+
+
+     $.ajax(
+      {
+        url: `/polls/${poll_id}`,
+        method: 'POST',
+        data: data
+      }
+    )
+
+    $(this).replaceWith("<p class='message'>Submission Successful</p>")
+
   })
 
 });
