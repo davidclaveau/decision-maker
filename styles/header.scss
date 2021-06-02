@@ -44,6 +44,9 @@ display:none;
 }
 #right{
   display: none;
+  span {
+    margin-right: 6px;
+  }
 }
 #menu{
 width: 50px;
@@ -76,7 +79,7 @@ i{
   }
 }
   button {
-    margin: 0;
+
     padding: 0;
     border: none;
     background-color: transparent;
@@ -88,6 +91,11 @@ i{
 a{
   text-decoration: none;
   // color:#2f3640 ;
+}
+
+#create_polls {
+  padding-left: 8em;
+  padding-right: 5em;
 }
 
 @media only screen and (min-width: 768px) {
