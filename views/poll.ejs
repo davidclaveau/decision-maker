@@ -31,53 +31,20 @@
 
     </h3>
 
-    <% if (!user_answer) { %>
-
-      <form action="/polls/<%= options[0].id %>"" method="POST" id="vote-form">
-        <div class="name_field">
-        <label>Enter your name</label>
-      <input type='text' placeholder="Please input your name" name='voter_name'>
-         </div>
-        <div class="option_list">
-
-        <input type='text' name='poll_id' hidden value="<%= options[0]['id'] %>">
-
-        <ul id="sortable">
-          <%for(let i in options){ %>
-            <div>
-              <li class="option_title">
-                <input type='text' name='option_id' hidden value="<%= options[i]['option_id'] %>">
-                <%= options[i].title %>
-              </input>
-            </li>
-
-              <p class="option_description">
-                <%= options[i].description %>
-              </p>
-            </div>
-
-              <% }%>
-          </ul>
-
-        <button id="submit">submit</button>
-      </div>
-      </form>
-
-
-    <% }  else {%>
       <div class="name_field">
         <label>Enter your name</label>
-      <input type='text' placeholder="Please input your name" name='voter_name'>
-         </div>
-        <div class="option_list">
+      <input type='text' placeholder="Please input your name" name='voter_name' id='input_name'>
+    </div>
+    <div class="option_list">
+          <p id='no_blank'>Do Not Leave This Blank</p>
 
-        <input type='text' name='poll_id' hidden value="<%= options[0]['id'] %>">
+        <input type='text' name='poll_id' id='poll_id' hidden value="<%= options[0]['id'] %>">
 
         <ul id="sortable">
           <%for(let i in options){ %>
             <div>
               <li class="option_title">
-                <input type='text' name='option_id' hidden value="<%= options[i]['option_id'] %>">
+                <input type='text' name='option_id' class='option_id' hidden value="<%= options[i]['option_id'] %>">
                 <%= options[i].title %>
               </input>
             </li>
@@ -90,12 +57,16 @@
               <% }%>
           </ul>
 
-        <button id="not_submit">submit</button>
+
+          <% if (!user_answer) { %>
+            <button id="not_submit">submit</button>
+            <% }  else {%>
+              <p class='message'> You Have Already Submitted</p>
+              <% }%>
       </div>
 
 
 
-      <% }%>
 
 
 

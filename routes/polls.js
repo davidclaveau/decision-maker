@@ -60,24 +60,24 @@ router.get('/:poll_id', (req, res) => {
 // POST /polls/:poll_id
 // Submit my votes
 router.post('/:poll_id', (req, res) => {
-
   const voterName = req.body['voter_name'];
   const optionsArr = req.body['option_id'];
   let rankScore = 1;
-
   const pollId = req.body['poll_id']
+
+  res.cookie('user_answer', 'notNull');
+
+
+
+
   for (const option of optionsArr.reverse()) {
     pollQueries.postMyVotes(rankScore, parseInt(option), voterName)
-    .then(() => {
-      res.redirect(`/polls/${pollId}`)
-    })
     .catch(err => {
       console.log("err", err.message);
     });
     rankScore ++;
   }
 
-  res.cookie('user_answer', req.body['option_id']);
 
   pollQueries.getUserNameEmailUserid(parseInt(pollId))
   .then((res) => {
@@ -88,11 +88,16 @@ router.post('/:poll_id', (req, res) => {
 
     const resultsLink = `${url}/polls/${pollId}/results`
     const usersLink = `${url}/users/${userId}`
-    sendPollSubmissionEmail(name, email, resultsLink, usersLink);
+    // sendPollSubmissionEmail(name, email, resultsLink, usersLink);
+    res.end
   })
   .catch(err => {
     console.log("Error:", err)
   });
+
+  res.json({
+    message: "Success!"
+  })
 
 });
 
