@@ -15,12 +15,12 @@ $(document).ready(() => {
  const $optiontextarea = $("#option-textarea");
  const $descriptiontextarea = $("#description-textarea");
  const $options = $(".added-options-container")
+
  let optCount = 1
 
   const appendOption = () => {
     const option = $optiontextarea.val()
     const description = $descriptiontextarea.val()
-
     const opt = $(`
       <div class="option ${optCount}">
         <div class="option-container">

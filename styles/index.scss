@@ -59,7 +59,7 @@ textarea {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 3.1em 1em 0;
+  padding: 0 2.4em 1em 0;
   margin-left: 2.7em;
   width: 60%;
 
@@ -148,7 +148,6 @@ button#add-option {
 
   .description-container {
     display: flex;
-    // align-items: center; <-- makes one box resize while other stays the same
     justify-content: space-around;
     flex-direction: column;
     width: 100%;
@@ -164,10 +163,9 @@ button#add-option {
 // Error handling
 div.error-message {
   display: none;
-  color: red;
+  color: rgb(193, 1, 1);
   padding: 0.4em;
   margin-bottom: 1em;
-  border: 3px solid red;
   background-color: lightgoldenrodyellow;
 }
 

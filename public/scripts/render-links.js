@@ -2,39 +2,38 @@ $(document).ready(() => {
   $('form').submit((event) => {
     event.preventDefault();
 
-    // Work in progress!
+    const $optTxt = $(".opt-txt")
+    const $pollTxt = $("#poll-name");
+    const option = $optTxt.val()
+    const pollName = $pollTxt.val()
+    const $error = $("div.error-message");
+    const optionsArr = [];
 
-    // Get the string of every option in the form
+    // Error handling:
+    // Get the string of every poll option in the form
     // Push the string.length into an array
-    // const optionsArr = [];
-    // $(".opt-txt").each((i) => {
-    //   const test = $("this").val();
-    //   optionsArr.push(test.length);
-    // });
+    $(".opt-txt").each((index) => {
+      const eachOption = $optTxt.eq(index).val()
+      optionsArr.push(eachOption.length);
+    });
 
-    // console.log("optionsArr", optionsArr)
+    // Find any values that are greater than 255
+    const found = optionsArr.find(num => num > 255);
 
-    // // Find any values that are greater than 255
-    // const found = optionsArr.find(num => num > 255);
+    // Show an error if character limits are reached
+    if (found || pollName.length > 255) {
+      let errorName = "";
+      option.length > 255 ? errorName += "Option" : errorName += "Poll"
 
-    // const $optTxt = $(".opt-txt")
-    // const $pollTxt = $("#poll-name");
-    // const option = $optTxt.val()
-    // const pollName = $pollTxt.val()
-    // const $error = $("div.error-message");
-    // if (found || pollName > 255) {
-    //   let errorName = "";
-    //   option.length > 255 ? errorName += "Option" : errorName += "Poll"
+      $error.empty().append(`
+        <i class="fas fa-exclamation-circle"></i>
+        <span><strong>${errorName} character limit exceeded! Please make sure it's less than 255 characters!</strong></span>
+      `).slideDown();
 
-    //   $error.empty().append(`
-    //     <i class="fas fa-exclamation-circle"></i>
-    //     <span><strong>${errorName} character limit exceeded!</strong></span>
-    //   `).slideDown();
-
-    //   setTimeout(() => {
-    //     $error.slideUp()
-    //   }, 5000)
-    // } else {
+      // setTimeout(() => {
+      //   $error.slideUp()
+      // }, 5000)
+    } else {
 
       $(".create-poll").hide();
 
@@ -112,6 +111,6 @@ $(document).ready(() => {
       $.when(ajaxPost).done(() => {
         ajaxGet
         });
-    // }
+    }
   });
 });
