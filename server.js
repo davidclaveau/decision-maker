@@ -55,12 +55,18 @@ app.use("/login", loginRoutes);
 app.get("/", (req, res) => {
   const templateVars = {};
 
-  indexQueries.getUser(req.cookies.user_id)
-    .then((user) => {
-      templateVars["userId"] = user.id;
-      templateVars["userName"] = user.name;
-      res.render('index.ejs', templateVars);
-    })
+  if (req.cookies.user_id) {
+    indexQueries.getUser(req.cookies.user_id)
+      .then((user) => {
+        templateVars["userId"] = user.id;
+        templateVars["userName"] = user.name;
+        res.render('index.ejs', templateVars);
+      })
+  } else {
+    templateVars["userId"] = null;
+    templateVars["userName"] = null;
+    res.render('index.ejs', templateVars);
+  }
 
 });
 

@@ -23,17 +23,18 @@
 
   <body>
     <main class="main">
-      <% if (userId === -1) { %>
+      <% if (!userId) { %>
 
-        <div>
-          <p>Login!</p>
-        </div>
+        <container class="login">
+          <a href="/login/2"><button type="submit">Login</button></a>
+          <a href="/login"><button type="submit">Register</button></a>
+        </container>
 
       <% } else { %>
 
         <section class="create-poll"><!-- Poll option -->
           <div class="error-message"></div>
-          <h1>Create a Poll!</h1>
+          <h1>Create Your Poll</h1>
 
 
           <form action="/index" method="POST" id="poll-form">
