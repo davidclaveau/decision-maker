@@ -71,6 +71,7 @@ table {
   margin: 2em auto;
   flex-direction: column;
   padding: 10px;
+  background-color: #FDFFF5;
   // background: rgb(253,229,70);
   // background: linear-gradient(90deg, rgba(253,229,70,1) 0%, rgba(69,215,172,1) 80%, rgba(24,200,214,1) 100%);
   // background-color: #ffe3c285;
@@ -115,10 +116,11 @@ tbody td {
 
   span{
   display: block;
-  margin: 5px 0;
+  margin: 5px ;
   }
 
-  padding: 10px;
+  padding-top: 20px;
+  padding-left: 10px;
 
 }
 
@@ -135,7 +137,7 @@ li{
   background-color: #ff9f43;
   overflow-x: visible;
   white-space:nowrap;
-  margin: 2px;
+  margin: 5px;
   padding-left: 3px;
   width: 0;
   transition: width 1s
@@ -167,5 +169,7 @@ li{
   color: #b33939;
 }
 }
+
+
 
 

@@ -6,28 +6,15 @@
  */
 
 const express = require('express');
-const { options } = require('pg/lib/defaults');
 const router  = express.Router();
-const loginQueries = require('../lib/login-queries');
 
 // GET /login
 router.get('/', (req, res) => {
-  res.render("login")
-});
-
-// POST /login
-router.post('/', (req, res) => {
-  const name = req.body.name;
-  const email = req.body.email;
-
-  loginQueries.postUser(name, email)
-    .then(response => {
-      res.cookie("user_id", response.id);
-      res.redirect('/')
-    })
-    .catch(err => {
-      console.log("Error:", err)
-    });
+  const templateVars = {
+    userId: 0,
+    userName: 'New User'
+  }
+  res.render("index", templateVars)
 });
 
 // GET /login/:id

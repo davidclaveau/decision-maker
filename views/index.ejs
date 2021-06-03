@@ -23,19 +23,20 @@
 
   <body>
     <main class="main">
+
+      <h1>Welcome to <span id="d">D</span>ecision <span id="m">M</span>aker</h1>
+
       <% if (!userId) { %>
 
         <container class="login">
           <a href="/login/2"><button type="submit">Login</button></a>
-          <a href="/login"><button type="submit">Register</button></a>
+          <a href="/register"><button type="submit">Register</button></a>
         </container>
 
       <% } else { %>
 
         <section class="create-poll"><!-- Poll option -->
           <div class="error-message"></div>
-          <h1>Create Your Poll</h1>
-
 
           <form action="/index" method="POST" id="poll-form">
 

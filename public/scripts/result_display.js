@@ -41,10 +41,7 @@ $(document).ready(function() {
       }
     })
 
-  //hover function
-  $('.poll-title-container').hover(function(){
-    $(this).toggleClass("shadow");
-  })
+
 
   const color2 = ['#fd9644', '#34ace0'];
     let j = 0;
