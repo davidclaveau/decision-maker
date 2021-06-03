@@ -55,6 +55,12 @@ main{
 button :hover{
   color: red;
 }
+.share{
+align-self: center;
+}
+.share:hover i{
+  color: green;
+}
 .options-container{
   width: 100%;
   border: 1px solid black;
