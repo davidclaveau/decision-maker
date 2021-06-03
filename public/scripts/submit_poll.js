@@ -45,7 +45,7 @@ $(document).ready(() => {
   }
 })
 
-$('.option_list').find('.option_title').hover(function() {
+/* $('.option_list').find('.option_title').hover(function() {
   $('.option_list').find('.option_title').each(function() {
     $(this).css({'background-color':color2[j]});
     if(j===2){
@@ -54,7 +54,7 @@ $('.option_list').find('.option_title').hover(function() {
       j++;
     }
   })
-})
+}) */
 
 
 
