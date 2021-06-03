@@ -24,6 +24,8 @@ $(document).ready(function() {
       optionNumber++;
     })
 
+    const color = ['#c23d3d', '#fd9644', '#34ace0'];
+    let i = 0;
     //set options bar's width
     $(optionsContainer).find('.bar').each(function() {
       let scorePercentage = '';
@@ -35,6 +37,12 @@ $(document).ready(function() {
         scorePercentage = (score / totalScore * 100 + '%').split(' ').join('').split('\n').join('');
       }
       $(this).css({ 'width': scorePercentage })
+      $(this).css({'background-color':color[i]});
+      if(i===2){
+        i=0
+      }else{
+        i++;
+      }
     })
   })
   //toggle options-container when clicked
@@ -45,7 +53,7 @@ $(document).ready(function() {
   }))
 
   //hover function
-  $('.poll-title-container').hover(function(){
+  $('.poll-title-container').hover(function() {
     $(this).toggleClass("shadow");
   })
 
