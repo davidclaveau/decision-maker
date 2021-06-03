@@ -16,30 +16,26 @@ const url = `http://localhost:8080`
 router.get('/', (req, res) => {
   const templateVars = {};
 
-  if (!req.cookies.user_id) {
-    templateVars["user_id"] = -1;
-  } else {
-    templateVars["user_id"] = req.cookies.user_id;
-  }
-
-  console.log("templateVars", templateVars)
-
-  res.render('index.ejs', templateVars);
+  indexQueries.getUser(req.cookies.user_id)
+    .then((user) => {
+      templateVars["userId"] = user.id;
+      templateVars["userName"] = user.name;
+      res.render('index.ejs', templateVars);
+    })
 });
 
 /*
- Create a poll, while sorting all options and their descriptions.
- Then an object is created with the options and descriptions.
- These will be looped and queried for each option:description pair.
- Finally, a query for user and new poll to redirect user and send email.
+ * Create a poll, while sorting all options and their descriptions.
+ * To post the options and descriptions. an object is created for each option * and description as a key/value pair. Finally, a query for user and new
+ * poll to redirect user and send email.
  */
-
 router.post('/', (req, res) => {
   const name = req.body.pollName;
   const arr = Object.keys(req.body);
   const optionsArr = [];
 
-  //
+  // Loop through req.body and create an array of objects
+  // Each object has the key (option) and property (description)
   for (let i = 1; i < arr.length; i++) {
     if (arr[i].startsWith("option")) {
       const optionObj = {};
@@ -49,7 +45,8 @@ router.post('/', (req, res) => {
     }
   }
 
-
+  // Post the poll and the options to the db.
+  // Retrive poll id and user info for email send out
   indexQueries.postIndexPoll(name, req.cookies.user_id)
     .then((poll) => {
       return poll;
@@ -57,18 +54,32 @@ router.post('/', (req, res) => {
     .then((poll) => {
       const id = poll.id;
       indexQueries.postIndexOption(id, optionsArr)
+      return id;
+    })
+    .then((id) => {
+      console.log("id", id)
+      return indexQueries.getIndexUserAndPoll(id)
+    })
+    .then((result) => {
+      const obj = result.rows[0]
+      const pollId = obj.poll_id;
+      const name = obj.user_name;
+      const email = obj.user_email;
+      const resultsLink = `${url}/polls/${pollId}/results`
+      const submissionLink = `${url}/polls/${pollId}`
 
+      sendCreatePollEmail(name, email, resultsLink, submissionLink);
     })
   .catch(err => {
       console.log("Error1:", err)
     });
 });
 
+// Get the newly created poll from the db
 router.get('/links', (req, res) => {
   const id = req.cookies.user_id;
   indexQueries.getSubmittedPoll(id)
       .then((response) => {
-        console.log("response.rows[0]", response.rows[0])
         res.json(response.rows[0])
         return response.rows[0];
     })
