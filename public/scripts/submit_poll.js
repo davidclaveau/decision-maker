@@ -29,7 +29,37 @@ $(document).ready(() => {
       });
 
       //replace the button with msg
-      $(this).replaceWith("<p class='message'>Submission Successful</p>");
+      $(this).replaceWith("<p class='success'>Submission Successful</p>");
     }
   });
+
+
+  const color2 = ['#c23d3d','#fd9644', '#34ace0'];
+  let j = 0;
+  $('.option_list').find('.option_title').each(function() {
+  $(this).css({'background-color':color2[j]});
+  if(j===2){
+    j=0
+  }else{
+    j++;
+  }
+})
+
+$('.option_list').find('.option_title').hover(function() {
+  $('.option_list').find('.option_title').each(function() {
+    $(this).css({'background-color':color2[j]});
+    if(j===2){
+      j=0
+    }else{
+      j++;
+    }
+  })
+})
+
+
+
+
+
+
+
 });

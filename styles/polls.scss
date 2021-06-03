@@ -52,6 +52,13 @@ h1 {
 .message {
   color: red;
   font-size: 30px;
+  font-weight: bold;
+}
+
+.success {
+  color: green;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .name_field {
@@ -83,6 +90,7 @@ h1 {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     cursor: pointer;
+
 
   }
 
