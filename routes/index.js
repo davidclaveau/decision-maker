@@ -21,12 +21,17 @@ router.get('/', (req, res) => {
       .then((user) => {
         templateVars["userId"] = user.id;
         templateVars["userName"] = user.name;
-        res.render('index.ejs', templateVars);
+        res.render("index.ejs", templateVars);
       })
+      .catch((err) => {
+        const error = '404'
+        const templateVars = { error }
+        res.render("error.ejs", templateVars);
+      });
   } else {
     templateVars["userId"] = null;
     templateVars["userName"] = null;
-    res.render('index.ejs', templateVars);
+    res.render("index.ejs", templateVars);
   }
 });
 
@@ -63,7 +68,6 @@ router.post('/', (req, res) => {
       return id;
     })
     .then((id) => {
-      console.log("id", id)
       return indexQueries.getIndexUserAndPoll(id)
     })
     .then((result) => {
@@ -76,8 +80,10 @@ router.post('/', (req, res) => {
 
       sendCreatePollEmail(name, email, resultsLink, submissionLink);
     })
-  .catch(err => {
-      console.log("Error1:", err)
+    .catch(err => {
+      const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
     });
 });
 
@@ -85,10 +91,15 @@ router.post('/', (req, res) => {
 router.get('/links', (req, res) => {
   const id = req.cookies.user_id;
   indexQueries.getSubmittedPoll(id)
-      .then((response) => {
+    .then((response) => {
         res.json(response.rows[0])
         return response.rows[0];
     })
+    .catch(err => {
+      const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
+    });
 });
 
 module.exports = router;

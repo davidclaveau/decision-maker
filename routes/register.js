@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
       res.redirect('/')
     })
     .catch(err => {
-      console.log("Error:", err)
+      res.render("error.ejs");
     });
 });
 
