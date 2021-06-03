@@ -27,7 +27,11 @@
     <p class="winner"><%= rows[0]['title'] %> For The Win! <i class="fas fa-trophy"></i> </p>
     <% } %>
 
-    <table>
+    <% if (num == 0) { %>
+      <p class="winner">There is no participants yet! </p>
+    <% } %>
+
+<!--     <table>
       <tr>
 
         <th class="rows">Options</th>
@@ -46,19 +50,21 @@
 
     <% } %>
 
-    </table>
+    </table> -->
 
 
     <div class="options-container">
 
 
       <ul>
+
         <% for (const rowIndex in rows) { %>
           <li>
             <div class="bar">
               <%= rows[rowIndex]['title'] %>
             </div>
-            <span class="rank">
+            <span>Score: <%= sum_rank[rowIndex] %></span>
+            <span class="rank" hidden>
               <%= sum_rank[rowIndex] %>
             </span>
           </li>
