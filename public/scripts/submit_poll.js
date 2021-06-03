@@ -34,7 +34,7 @@ $(document).ready(() => {
   });
 
 
-  const color2 = ['#c23d3d','#fd9644', '#34ace0'];
+  const color2 = ['#fb5057','#fd9644', '#34ace0'];
   let j = 0;
   $('.option_list').find('.option_title').each(function() {
   $(this).css({'background-color':color2[j]});

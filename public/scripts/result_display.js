@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     //set options bar's width
 
-    const color = ['#c23d3d', '#fd9644', '#34ace0'];
+    const color = ['#fb5057', '#fd9644', '#34ace0'];
     let i = 0;
     $(optionsContainer).find('.bar').each(function() {
       let scorePercentage = '';
