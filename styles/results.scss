@@ -6,7 +6,7 @@ body {
   // background: linear-gradient(90deg, rgba(253,223,70,1) 0%, rgba(69,215,181,1) 80%, rgba(24,214,210,1) 100%);
 }
 
-h1, h2, h3{
+h1, h2, h5{
   display: flex;
   justify-content: center;
   margin: 0;
@@ -42,18 +42,23 @@ table {
   border: #aaa solid;
   border-radius: 25px;
   width: 700px;
-  margin: auto;
+  margin: 2em auto;
   flex-direction: column;
   padding: 10px;
-  background: rgb(253,229,70);
-  background: linear-gradient(90deg, rgba(253,229,70,1) 0%, rgba(69,215,172,1) 80%, rgba(24,200,214,1) 100%);
+  // background: rgb(253,229,70);
+  // background: linear-gradient(90deg, rgba(253,229,70,1) 0%, rgba(69,215,172,1) 80%, rgba(24,200,214,1) 100%);
+  // background-color: #ffe3c285;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+
 
 th {
   letter-spacing: 2px;
   font-size: 25px;
   border: 1px solid black;
   border-radius: 5px;
+  padding: 0.4em;
 
 }
 
@@ -62,6 +67,7 @@ td {
   font-size: 18px;
   border: 1px solid black;
   border-radius: 5px;
+  padding: 0.5em;
 
 }
 
@@ -113,6 +119,27 @@ li{
   padding-top: 8px;
   margin-left: 5px;
   color: gold;
+}
+
+#logo_polls{
+  padding-left: 5em;
+  display:flex;
+  align-items: center;
+  img{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    vertical-align: middle;
+    // vertical-align: middle;
+    // display: table-cell;
+    // text-align: center;
+    align-items: center;
+  }
+  font-weight: bold;
+  span:first-letter{
+  font-size: 30px;
+  color: #b33939;
+}
 }
 
 

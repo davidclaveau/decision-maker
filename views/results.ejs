@@ -13,13 +13,16 @@
        <!-- font awsome -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </head>
-  <%- include('partials/_header') %>
-  <body>
 
-    <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1>
+  <body>
+    <div id="logo_polls">
+      <img src="/img/logo.png" alt="logo"><span>Decision Maker</span>
+    </div>
+
+    <!-- <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1> -->
     <div class="results">
-    <h2> <%= rows[0]['name'] %> </h2>
-    <h3> Total participants: <%= num %> </h3>
+    <h1> <%= rows[0]['name'] %> </h2>
+    <h5> Total participants: <%= num %> </h3>
     <% if (num != 0) { %>
     <p class="winner"><%= rows[0]['title'] %> For The Win! <i class="fas fa-trophy"></i> </p>
     <% } %>

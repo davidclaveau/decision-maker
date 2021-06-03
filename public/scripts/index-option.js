@@ -3,7 +3,7 @@ $(document).ready(() => {
   * Allow users to textarea as many options as they like.
   * Creates a variable with the div for each option and description.
   * After the div is appended, we can access the button using
-  * the variable (opt) and delete each option individually
+  * the variable ($opt) and delete each option individually
   */
 
  // Delete placeholder element
@@ -15,18 +15,13 @@ $(document).ready(() => {
  const $optiontextarea = $("#option-textarea");
  const $descriptiontextarea = $("#description-textarea");
  const $options = $(".added-options-container")
+
  let optCount = 1
 
   const appendOption = () => {
     const option = $optiontextarea.val()
     const description = $descriptiontextarea.val()
-
-
-    if (option.length > 255 || description.length > 255) {
-      console.log("Length too long!");
-    }
-
-    const opt = $(`
+    const $opt = $(`
       <div class="option ${optCount}">
         <div class="option-container">
           <h6>Option</h6>
@@ -41,11 +36,11 @@ $(document).ready(() => {
           </button>
       </div>
     `)
-    $options.append(opt);
+    $options.append($opt);
 
     // Delete each appended option individually
-    opt.on("click", ".delete-btn", () => {
-      opt.remove();
+    $opt.on("click", ".delete-btn", () => {
+      $opt.remove();
     });
 
     optCount++;
@@ -54,9 +49,7 @@ $(document).ready(() => {
     $optiontextarea.focus();
   };
 
-  // Clicking or 'tabbing' to the add buttn will initate the append
   $addOption.click((appendOption))
-  $addOption.focus((appendOption))
 
   /*
   * Uses Are-You-Sure jquery plugin to check if the form has been

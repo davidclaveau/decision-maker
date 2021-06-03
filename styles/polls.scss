@@ -8,14 +8,20 @@ body {
 
 main{
   width: 700px;
-  margin: 0 auto;
+  margin: 2em auto;
   padding: 1em 1em;
   border: #aaa solid;
   border-radius: 25px;
   display: flex;
-  background: rgb(253,229,70);
-  background: linear-gradient(90deg, rgba(253,229,70,1) 0%, rgba(69,215,172,1) 80%, rgba(24,200,214,1) 100%);
+  // background: #bbfffede;
+
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 }
+
+
+
 input{
   width: 200px;
 
@@ -81,7 +87,7 @@ h1 {
   }
 
   .option_title:hover{
-    box-shadow: 2.5px 5px ;
+    box-shadow: 2.5px 5px gray ;
   }
 
 
@@ -211,4 +217,25 @@ $gray: #9b9b9b;
 
 .fa-sort {
   margin-right: 10px;
+}
+
+#logo_polls{
+  padding-left: 5em;
+  display:flex;
+  align-items: center;
+  img{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    vertical-align: middle;
+    // vertical-align: middle;
+    // display: table-cell;
+    // text-align: center;
+    align-items: center;
+  }
+  font-weight: bold;
+  span:first-letter{
+  font-size: 30px;
+  color: #b33939;
+}
 }

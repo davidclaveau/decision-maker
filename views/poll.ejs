@@ -29,7 +29,9 @@
 
 <body>
 
-    <%- include('partials/_header') %>
+  <div id="logo_polls">
+    <img src="/img/logo.png" alt="logo"><span>Decision Maker</span>
+  </div>
 
   <main>
     <h1>
@@ -78,7 +80,7 @@
             <% } else if (poll_id.includes(options[0]['id'])) { %>
               <p class='message'> You Have Already Submitted</p>
             <% }  else {%>
-              <button type="button" class="btn btn-primary" id="submit">Submit</button>
+              <button type="button" class="btn btn-primary" id="submit">Submit<i class="far fa-paper-plane"></i></button>
               <% }%>
 
       </div>

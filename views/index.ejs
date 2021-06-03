@@ -13,17 +13,17 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/index-option.js"></script>
     <script type="text/javascript" src="/scripts/are-you-sure.js"></script>
-    <script type="text/javascript" src="/scripts/show-poll-links.js"></script>
+    <script type="text/javascript" src="/scripts/render-links.js"></script>
     <script type="text/javascript" src="/scripts/copy-to-clipboard.js"></script>
 
     </script>
   </head>
-
   <%- include('partials/_header') %>
+
 
   <body>
     <main class="main">
-      <% if (user_id === -1) { %>
+      <% if (userId === -1) { %>
 
         <div>
           <p>Login!</p>
@@ -32,7 +32,9 @@
       <% } else { %>
 
         <section class="create-poll"><!-- Poll option -->
+          <div class="error-message"></div>
           <h1>Create a Poll!</h1>
+
 
           <form action="/index" method="POST" id="poll-form">
 
@@ -61,11 +63,11 @@
               <div class="option">
                 <div class="option-container">
                   <h6>Add an option:</h6>
-                  <textarea type="text" name="new-option" id="option-textarea" class="opt-txt"></textarea>
+                  <textarea type="text" name="new-option" id="option-textarea" class="opt-txt-add"></textarea>
                 </div>
                 <div class="description-container">
                   <h6>Add a description:</h6>
-                  <textarea type="text" name="new-description" id="description-textarea" class="desc-txt"></textarea>
+                  <textarea type="text" name="new-description" id="description-textarea" class="desc-txt-add"></textarea>
                 </div>
                 <button type="button" id="add-option">
                   <i class="fas fa-plus"></i>
