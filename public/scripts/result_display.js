@@ -18,7 +18,11 @@ $(document).ready(function() {
       optionNumber++;
     })
 
+
     //set options bar's width
+
+    const color = ['#c23d3d', '#fd9644', '#34ace0'];
+    let i = 0;
     $(optionsContainer).find('.bar').each(function() {
       let scorePercentage = '';
       const score = Number($(this).parent().children('.rank').html());
@@ -29,14 +33,31 @@ $(document).ready(function() {
         scorePercentage = (score / totalScore * 100 + '%').split(' ').join('').split('\n').join('');
       }
       $(this).css({ 'width': scorePercentage })
+      $(this).css({'background-color':color[i]});
+      if(i===2){
+        i=0
+      }else{
+        i++;
+      }
     })
-
-
-
 
   //hover function
   $('.poll-title-container').hover(function(){
     $(this).toggleClass("shadow");
   })
+
+  const color2 = ['#fd9644', '#34ace0'];
+    let j = 0;
+  $('table').find('tr').each(function() {
+
+    $(this).css({'background-color':color2[j]});
+    if(j===1){
+      j=0
+    }else{
+      j++;
+    }
+  })
+
+  $('table').find('th').css('background-color', '#c23d3d')
 
 });
