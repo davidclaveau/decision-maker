@@ -13,7 +13,7 @@ const sendCreatePollEmail = (name, email, resultsLink, submissionLink) => {
   const data = {
     from: 'Decision Maker <decisionmaker@fengziodavid.com>',
     to: email,
-    subject: `Hello ${name}!`,
+    subject: `Hey ${name}! Here's your new poll :)`,
     html:`
       <html>
         <body> The link to see the results: <a href="${resultsLink}">can be found here</a> and the link to share with your friends <a href="${submissionLink}">can be found here</a>

@@ -31,22 +31,29 @@ $(document).ready(() => {
     if (found || pollName.length > 255) {
       let errorName = "";
 
-      if (option.length > 255 && pollName.length <= 255) {
+      if (found && pollName.length <= 255) {
         errorName += "Option title";
+
       } else if (pollName.length > 255 && option.length <= 255) {
         errorName += "Poll name";
-      } else if (option.length > 255 && pollName.length > 255) {
+      } else if (found && pollName.length > 255) {
         errorName += "Poll name and option title";
       }
 
+      // Scroll to the error
+      $('html, body').animate({
+        scrollTop: $error.offset().top
+      }, 1000);
+
+      // Show error to user
       $error.empty().append(`
         <i class="fas fa-exclamation-circle"></i>
         <span><strong>${errorName} character limit exceeded! Please make sure it's less than 255 characters!</strong></span>
       `).slideDown();
 
       setTimeout(() => {
-        $error.slideUp()
-      }, 5000)
+        $error.slideUp();
+      }, 4000);
 
     } else {
 
@@ -95,7 +102,7 @@ $(document).ready(() => {
                         <a href="${url}/polls/${pollId}/results">${url}/polls/${pollId}/results</a>
                       </span>
                     </p>
-                    <a href="${url}/polls/${pollId}/results">
+                    <a href="${url}/polls/${pollId}/results" target="_blank">
                       <button id="results">
                         Results
                         <i class="fas fa-chart-bar"></i>
