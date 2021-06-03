@@ -72,7 +72,7 @@ $(document).ready(() => {
           pollId = result.id;
           const linksRender = $(`
             <section class="poll-created">
-              <h1>Poll Created!</h1>
+              <h1>Congratulations - You've Created a New Poll!</h1>
                 <div class="poll-links">
                   <container class="guest-link">
                     <h2>Share</h2>

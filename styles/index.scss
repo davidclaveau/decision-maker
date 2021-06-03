@@ -22,6 +22,10 @@ textarea {
   width: 100%;
   padding: 2em;
 
+  h1 {
+    color:#2183a0
+  }
+
   form#poll-form {
     display: flex;
     justify-content: center;
@@ -97,9 +101,9 @@ button.delete-icon {
   margin-left: 0.7em;
   margin-top: 1em;
 
-  &:focus {
-    outline:none;
-  }
+  // &:focus {
+  //   outline:none;
+  // }
 }
 
 button#add-option {
@@ -115,9 +119,9 @@ button#add-option {
   margin-left: 0.7em;
   margin-top: 1.2em;
 
-  &:focus {
-    outline: none;
-  }
+  // &:focus {
+  //   outline: none;
+  // }
 }
 
 .option {
@@ -130,7 +134,7 @@ button#add-option {
 
   h6 {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .option-container {
@@ -143,6 +147,7 @@ button#add-option {
     textarea {
       margin: 0;
       width: 100%;
+      min-height: 50px;
     }
   }
 
@@ -157,6 +162,38 @@ button#add-option {
       margin: 0;
       width: 100%;
     }
+  }
+}
+
+// Non-logged in user
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 9em;
+    background: cornflowerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1em;
+    height: 2.7em;
+    font-size: 18px;
+    cursor: pointer;
   }
 }
 
@@ -352,6 +389,10 @@ div.error-message {
 
 
 @media screen and (max-width: 500px) {
+  .login {
+    flex-direction: column;
+  }
+
   .poll-name-container {
     padding: 0 0 2em 0;
     margin: 0;
