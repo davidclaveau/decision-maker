@@ -95,10 +95,14 @@ i{
     background-color: transparent;
     a{
       color:#4b4b4b;
+      // text-decoration: none;
     }
    }
-
 a{
+  text-decoration: none;
+}
+header a:hover {
+  color: #b33939;
   text-decoration: none;
 }
 
