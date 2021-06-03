@@ -103,6 +103,12 @@ $(document).ready(() => {
                     </a>
                   </container>
                 </div>
+
+                <a href="/index">
+                  <button type="submit" id="new-poll-button">
+                    <span>Create a New Poll</span>
+                  </button>
+                </a>
               </section>
           `)
 

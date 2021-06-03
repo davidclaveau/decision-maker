@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>Register</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/register.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/index-option.js"></script>
@@ -14,23 +15,28 @@
     </script>
   </head>
 
-
   <%- include('partials/_header') %>
+
   <body>
-    <h1>This will be where users can create polls</h1>
+    <container class="register-container">
+      <h1>Register</h1>
 
-  <main>
-    Create User:
-    <form action="/login" method="POST">
-      Name: <input type="text" name="name" required />
-      Email: <input type="text" name="email" required />
-    <br>
-    <button type="submit">Login</button>
-    </form>
-  </main>
+      <div class=register-form>
+        <form action="/Register" method="POST">
+          <div id="name">
+            Name: <input type="text" name="name" required />
+          </div>
+          <div id="email">
+            Email: <input type="text" name="email" required />
+          </div>
+          <div id="button">
+            <button type="register" id="register">Register</button>
+          </div>
+        </form>
+      </div>
 
-  <br>
-  <br>
+    </container>
+
   <%- include('partials/_footer') %>
 
   </body>
