@@ -23,6 +23,11 @@ router.get('/', (req, res) => {
         templateVars["userName"] = user.name;
         res.render("index.ejs", templateVars);
       })
+      .catch((err) => {
+        const error = '404'
+        const templateVars = { error }
+        res.render("error.ejs", templateVars);
+      });
   } else {
     templateVars["userId"] = null;
     templateVars["userName"] = null;
@@ -76,7 +81,9 @@ router.post('/', (req, res) => {
       sendCreatePollEmail(name, email, resultsLink, submissionLink);
     })
     .catch(err => {
-      res.render("error.ejs")
+      const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
     });
 });
 
@@ -89,7 +96,9 @@ router.get('/links', (req, res) => {
         return response.rows[0];
     })
     .catch(err => {
-      res.render("error.ejs")
+      const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
     });
 });
 
