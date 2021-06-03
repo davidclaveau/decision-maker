@@ -2,7 +2,6 @@ h6{
   width: 80vw;
   margin: 50px auto;
   text-align: center;
-
 }
 main{
   margin: 20px 20px 100px 20px;
@@ -14,7 +13,6 @@ main{
   width: 100%;
   margin: 0 auto;
   position: relative;
-
 }
 .poll-container{
   width: 100%;
@@ -83,7 +81,6 @@ li{
   justify-content: space-between;
 }
 .bar{
-  // background-color: #ff9f43;
   opacity: 0.9;
   overflow-x: visible;
   white-space:nowrap;
@@ -92,6 +89,7 @@ li{
   width: 0;
   transition: width 1s
 }
+
 @media only screen and (min-width: 768px) {
 main{
   margin:0 5vw 100px 5vw;
@@ -106,7 +104,7 @@ body{
   display: flex;
   justify-content: space-between;
   align-content: stretch;
-  // position: relative;
+
   .poll-title-container{
     width: 45%;
     font-size: 19px;
@@ -115,7 +113,6 @@ body{
   .options-container{
     width: 52%;
     position: absolute;
-    // position: sticky;
     right:0;
     top:6px;
     font-size: 20px;

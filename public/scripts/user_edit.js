@@ -1,10 +1,12 @@
-//in the user's administration page
-//delete poll
+/* eslint-disable no-undef */
+//For users to his  delete polls
 $(document).ready(function() {
   $('.delete').each((function() {
     $(this).click(function() {
-      // store this delete dom in _this variable
+
+      // Store this delete dom in _this variable
       const _this = $(this);
+      //Delete confirmation
       $.confirm({
         title: 'Are you sure to delete the poll?',
         content: '',
@@ -15,7 +17,7 @@ $(document).ready(function() {
             keys: ['enter'],
             action: function() {
 
-              //delete the poll
+              //Delete the poll from database and users' page
               const userId = $(_this).parent().find('.userId').attr('value');
               console.log(userId);
               const pollId = $(_this).attr('value');
@@ -29,20 +31,19 @@ $(document).ready(function() {
                   method: 'POST',
                   data: data
                 }
-              )
+              );
               $(_this).parents('.poll-container').remove();
 
             }
           },
           cancel: function() {
-            text: 'Cancel'
+            'Cancel';
           }
 
         }
       });
-
-    })
-  }))
+    });
+  }));
 });
 
 
