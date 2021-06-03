@@ -22,11 +22,10 @@ const sendCreatePollEmail = (name, email, resultsLink, submissionLink) => {
   };
   return mailgun.messages().send(data, (error, body) => {
     if (error) {
-      console.log("Error4:", error)
+      console.log(`Error with sending email - ${error}`)
     }
-    console.log("This should be sending emails:", body)
   });
-}
+};
 
 
 const sendPollSubmissionEmail = (name, email, resultsLink, usersLink) => {
@@ -42,11 +41,10 @@ const sendPollSubmissionEmail = (name, email, resultsLink, usersLink) => {
   };
   return mailgun.messages().send(data, (error, body) => {
     if (error) {
-      console.log("Error1:", error)
+      console.log("Error1:", error);
     }
-    console.log("This should be sending emails:", body)
   });
-}
+};
 
 module.exports = { sendCreatePollEmail, sendPollSubmissionEmail};
 

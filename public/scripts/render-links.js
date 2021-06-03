@@ -9,10 +9,10 @@ $(document).ready(() => {
   $('form').submit((event) => {
     event.preventDefault();
 
-    const $optTxt = $(".opt-txt")
+    const $optTxt = $(".opt-txt");
     const $pollTxt = $("#poll-name");
-    const option = $optTxt.val()
-    const pollName = $pollTxt.val()
+    const option = $optTxt.val();
+    const pollName = $pollTxt.val();
     const $error = $("div.error-message");
     const optionsArr = [];
 
@@ -20,7 +20,7 @@ $(document).ready(() => {
     // Get the string of every poll option in the form
     // Push the string.length into an array
     $(".opt-txt").each((index) => {
-      const eachOption = $optTxt.eq(index).val()
+      const eachOption = $optTxt.eq(index).val();
       optionsArr.push(eachOption.length);
     });
 
@@ -57,26 +57,26 @@ $(document).ready(() => {
 
     } else {
 
-    // Render link page after creating a new poll
+      // Render link page after creating a new poll
       $(".create-poll").hide();
 
       const $form = $("form");
       const serialized = ($form.serialize());
-      const url = 'http://localhost:8080'
+      const url = 'http://localhost:8080';
 
       // Post the form to the database
       const ajaxPost = $.ajax({
         type: "POST",
         url: "/index",
         data: serialized,
-      })
+      });
 
       // Retrieve submitted post, show links to user
       const ajaxGet = $.ajax({
         type: "GET",
         url: "/index/links",
         success: function(result) {
-          pollId = result.id;
+          const pollId = result.id;
           const linksRender = $(`
             <section class="poll-created">
               <h1>Congratulations - You've Created a New Poll!</h1>
@@ -117,29 +117,29 @@ $(document).ready(() => {
                   </button>
                 </a>
               </section>
-          `)
+          `);
 
           $("main").append(linksRender);
           // history.pushState(`${url}/index/links`,"Your Links",'/#link-page');
 
           // Copy to clipboard function for sharing link
           linksRender.on("click", "#copy", () => {
-            const $copyText = $(".copy-text")
-            const copy = $copyText.attr("data-text")
+            const $copyText = $(".copy-text");
+            const copy = $copyText.attr("data-text");
             copyToClipboard(copy);
 
             $("#copy").html(`
               Copied!
               <i class="far fa-paper-plane"></i>
             `);
-          })
+          });
         }
-      })
+      });
 
       // Wait until post is complete, then retrieve last poll
       $.when(ajaxPost).done(() => {
-        ajaxGet
-        });
+        ajaxGet;
+      });
     }
   });
 });
