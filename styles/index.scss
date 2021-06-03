@@ -6,6 +6,9 @@
 
   h1 {
     color: #4b4b4b;
+    padding: 1em 1em 0 1em;
+    text-align: center;
+
 
     #d {
       color: #b23939;
@@ -20,8 +23,16 @@
 }
 
 textarea {
-  background-color: rgb(242, 242, 242);
-  border: none;
+  font-size: 1.2em !important;
+  background-color: rgb(245, 245, 245);
+  overflow: auto;
+  resize: vertical;
+  border: 1px grey solid;
+  border-radius: 5px;
+  padding: .3em;
+  margin: 0em;
+  min-height: 3.5em;
+  height: 3.5em;
 
   &:focus {
     outline:none;
@@ -119,10 +130,6 @@ button.delete-icon {
   margin-left: 0.7em;
   margin-top: 1em;
 
-  // &:focus {
-  //   outline:none;
-  // }
-
   &:hover {
     color: rgb(230, 0, 0);
   }
@@ -168,12 +175,6 @@ button#add-option {
     flex-direction: column;
     width: 100%;
     margin-right: 2.5%;
-
-    textarea {
-      margin: 0;
-      width: 100%;
-      min-height: 50px;
-    }
   }
 
   .description-container {
@@ -182,11 +183,6 @@ button#add-option {
     flex-direction: column;
     width: 100%;
     margin-left: 2.5%;
-
-    textarea {
-      margin: 0;
-      width: 100%;
-    }
   }
 }
 
@@ -419,12 +415,51 @@ div.error-message {
 }
 
 @media screen and (max-width: 768px) {
+  .option {
+    flex-direction: column;
+    padding: 0 0 2em 0;
+    margin: 0;
+
+    span {
+      padding: 0;
+    }
+
+    .option-container {
+      margin-bottom : 1em;
+    }
+
+    .description-container {
+      margin: 1em;
+      margin-right: 1.8em;
+    }
+  }
+
+  button.delete-icon {
+    padding: .5em;
+    margin: 0;
+    font-size: 36px;
+  }
+
+  button#add-option {
+    padding: .5em;
+    margin: 0;
+    font-size: 36px;
+  }
+
+  button#submit-button {
+    height: 4em;
+  }
+
   .poll-name-container {
     width: 90%;
+    padding: 0;
+    margin: 0em 0.5em 4em 0em;
   }
+
   .added-options-container {
     width: 90%;
   }
+
   .add-more-options {
     width: 90%;
   }
@@ -456,34 +491,6 @@ div.error-message {
 @media screen and (max-width: 500px) {
   .login {
     flex-direction: column;
-  }
-
-  .poll-name-container {
-    padding: 0 0 2em 0;
-    margin: 0;
-  }
-
-  .option {
-    flex-direction: column;
-    padding: 0 0 2em 0;
-    margin: 0;
-
-    span {
-      padding: 0;
-    }
-
-    .option-container {
-      margin-bottom : 1em;
-    }
-
-    .description-container {
-      margin: 0;
-    }
-  }
-
-  #submit-button {
-    width: 10em;
-    height: 3em;
   }
 
   .poll-links {
