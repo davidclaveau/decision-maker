@@ -1,15 +1,15 @@
 
 #header-wrapper{
 position: relative;
-height: 100px;
-margin-bottom: 20px;
+height: 140px;
+margin-bottom: 10px;
 }
 header{
   width: 100vw;
   border-bottom: 1px solid rgb(219, 220, 221);
   background-color: #fff;
   position: relative;
-  margin-bottom: 20px;
+
   position: fixed;
   z-index: 999;
 nav{
@@ -26,24 +26,29 @@ nav{
 
 }
 #logo{
+  width: 120px;
   display:flex;
-  align-content: center;
+  align-items: center;
+  position: relative;
   img{
     width: 50px;
     height: 50px;
     margin-right: 5px;
     vertical-align: middle;
-    // vertical-align: middle;
-    // display: table-cell;
-    // text-align: center;
     align-items: center;
+  }
+  span{
+    position: absolute;
+    line-height: 22px;
+    height: 70px;
+    bottom: 0;
+    left: 60px;
   }
   span:first-letter{
   font-size: 30px;
   color: #b33939;
 }
 }
-
 
 #left{
 display:none;
@@ -80,12 +85,11 @@ i{
     margin: 15px 20px;
     height: 40px;
     span{
-      color: red;
+      color: #b33939;
     }
   }
 }
   button {
-
     padding: 0;
     border: none;
     background-color: transparent;
@@ -98,26 +102,48 @@ a{
   text-decoration: none;
 }
 
-#create_polls {
-  padding-left: 8em;
-  padding-right: 5em;
-}
+
 
 @media only screen and (min-width: 768px) {
+
   nav{
     margin:0 5vw;
+    // justify-content: space-evenly;
+  span{
+      font-size: 16px;
+    }
+  a{
+      font-size: 16px;
+    }
+  }
+  #logo{
+  span{
+    height: 80px;
+  }
   }
   #left{
-    width: 20vw;
-    display:flex;
+    width: 28vw;
+    display: flex;
+    padding: 0 20px;
     justify-content: space-between;
+    button{
+      height: 80%;
+      align-self: flex-end;
+    }
   }
+
   #right{
     display: block;
-
+    width: 41vw;
+    padding-top: 22px;
+    margin-left: 10px;
     span{
-      color:red;
-      margin: 0 15px;
+      color:#b33939;
+      height: 30px;
+    }
+
+    button{
+      height: 80%;
     }
   }
   #menu{
@@ -125,8 +151,10 @@ a{
   }
 }
 @media only screen and (min-width: 1024px) {
-  nav{
-    margin:0 20vw;
+  header nav{
+    margin:0 10vw;
+    width: 80vw;
+position: relative;
     span{
       font-size: 20px;
     }
@@ -135,6 +163,14 @@ a{
     }
   }
   #left{
-    width: 24vw;
+    width: 300px;
+    justify-content: space-evenly;
+    position: absolute;
+    left:160px ;
+    bottom: 0;
+  }
+  #right{
+    width:400px;
+    // position: absolute;
   }
 }
