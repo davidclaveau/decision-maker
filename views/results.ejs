@@ -16,10 +16,10 @@
   <%- include('partials/_header_polls') %>
   <body>
 
-    <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1>
+    <!-- <h1>Results for Poll <%= rows[0]['poll_id'] %> </h1> -->
     <div class="results">
-    <h2> <%= rows[0]['name'] %> </h2>
-    <h3> Total participants: <%= num %> </h3>
+    <h1> <%= rows[0]['name'] %> </h2>
+    <h5> Total participants: <%= num %> </h3>
     <% if (num != 0) { %>
     <p class="winner"><%= rows[0]['title'] %> For The Win! <i class="fas fa-trophy"></i> </p>
     <% } %>
