@@ -11,7 +11,10 @@ const sass         = require("node-sass-middleware");
 const app          = express();
 const morgan       = require('morgan');
 
-const db=require('./lib/connection.js')
+const db=require('./lib/connection.js');
+const indexQueries = require('./lib/index-queries');
+
+
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -52,15 +55,13 @@ app.use("/login", loginRoutes);
 app.get("/", (req, res) => {
   const templateVars = {};
 
-  if (!req.cookies.user_id) {
-    templateVars["user_id"] = -1;
-  } else {
-    templateVars["user_id"] = req.cookies.user_id;
-  }
+  indexQueries.getUser(req.cookies.user_id)
+    .then((user) => {
+      templateVars["userId"] = user.id;
+      templateVars["userName"] = user.name;
+      res.render('index.ejs', templateVars);
+    })
 
-  console.log("templateVars", templateVars)
-
-  res.render('index.ejs', templateVars);
 });
 
 app.listen(PORT, () => {
