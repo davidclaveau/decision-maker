@@ -13,8 +13,8 @@ main{
   border: #aaa solid;
   border-radius: 25px;
   display: flex;
-  // background: #bbfffede;
 
+  background-color: #FDFFF5;
 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
@@ -147,7 +147,7 @@ $gray: #9b9b9b;
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: $primary;
+    color: black;
     font-weight:700;
 
 
@@ -157,7 +157,7 @@ $gray: #9b9b9b;
   padding-top: 12px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, $primary,$secondary);
+  border-color: black;
   border-image-slice: 1;
 }
 
