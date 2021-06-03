@@ -1,3 +1,10 @@
+/*
+ * Use this to render the links for the user after they create their poll
+ * This will check for any character limit errors first
+ * Will then chain ajax requests to POST to the db, then GET the last poll
+ * added and show the correct links to the user.
+ */
+
 $(document).ready(() => {
   $('form').submit((event) => {
     event.preventDefault();
@@ -9,7 +16,7 @@ $(document).ready(() => {
     const $error = $("div.error-message");
     const optionsArr = [];
 
-    // Error handling:
+    // Error handling
     // Get the string of every poll option in the form
     // Push the string.length into an array
     $(".opt-txt").each((index) => {
@@ -23,18 +30,27 @@ $(document).ready(() => {
     // Show an error if character limits are reached
     if (found || pollName.length > 255) {
       let errorName = "";
-      option.length > 255 ? errorName += "Option" : errorName += "Poll"
+
+      if (option.length > 255 && pollName.length <= 255) {
+        errorName += "Option title";
+      } else if (pollName.length > 255 && option.length <= 255) {
+        errorName += "Poll name";
+      } else if (option.length > 255 && pollName.length > 255) {
+        errorName += "Poll name and option title";
+      }
 
       $error.empty().append(`
         <i class="fas fa-exclamation-circle"></i>
         <span><strong>${errorName} character limit exceeded! Please make sure it's less than 255 characters!</strong></span>
       `).slideDown();
 
-      // setTimeout(() => {
-      //   $error.slideUp()
-      // }, 5000)
+      setTimeout(() => {
+        $error.slideUp()
+      }, 5000)
+
     } else {
 
+    // Render link page after creating a new poll
       $(".create-poll").hide();
 
       const $form = $("form");

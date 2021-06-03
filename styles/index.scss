@@ -167,6 +167,8 @@ div.error-message {
   padding: 0.4em;
   margin-bottom: 1em;
   background-color: lightgoldenrodyellow;
+  text-align: center;
+  width: 60%
 }
 
 // Links page when rendered
@@ -308,6 +310,10 @@ div.error-message {
   .add-more-options {
     width: 80%;
   }
+
+  div.error-message {
+    width: 80%
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -319,6 +325,10 @@ div.error-message {
   }
   .add-more-options {
     width: 90%;
+  }
+
+  div.error-message {
+    width: 90%
   }
 
   .poll-links {
