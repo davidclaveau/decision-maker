@@ -5,8 +5,6 @@ Decision Maker is a quick and easy way to create and share polls with your frien
 
 ## Screenshots
 
----
-
 Create a poll with ease and add as many options as you like. Don't like an option you've added? Delete it!
 ![](https://raw.githubusercontent.com/davidclaveau/decision-maker/master/public/img/create-a-poll.png)
 
