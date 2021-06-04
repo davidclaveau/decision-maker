@@ -16,9 +16,14 @@ const sendCreatePollEmail = (name, email, resultsLink, submissionLink) => {
     subject: `Hey ${name}! Here's your new poll :)`,
     html:`
       <html>
-        <body> The link to see the results: <a href="${resultsLink}">can be found here</a> and the link to share with your friends <a href="${submissionLink}">can be found here</a>
-        </body>
-      </html>`
+      <body>
+        <h2>Results</h2>
+        <p>The link to see the results: <a href="${resultsLink}">can be found here</a></p>
+        <br>
+        <h2>Share</h2>
+        <p>The link to share with your friends <a href="${submissionLink}">can be found here</a></p>
+      </body>
+    </html>`
   };
   return mailgun.messages().send(data, (error, body) => {
     if (error) {
@@ -32,12 +37,17 @@ const sendPollSubmissionEmail = (name, email, resultsLink, usersLink) => {
   const data = {
     from: 'Decision Maker <decisionmaker@fengziodavid.com>',
     to: email,
-    subject: `Hello ${name}!`,
+    subject: `Hey ${name}! Someone voted on your poll!`,
     html:`
       <html>
-        <body> The link to see the results: <a href="${resultsLink}">can be found here</a> and the link to manage your account <a href="${usersLink}">can be found here</a>
-        </body>
-      </html>`
+      <body>
+        <h2>Results</h2>
+        <p>The link to see the results: <a href="${resultsLink}">can be found here</a></p>
+        <br>
+        <h2>Manage Account</h2>
+        The link to manage your account <a href="${usersLink}">can be found here</a>
+      </body>
+    </html>`
   };
   return mailgun.messages().send(data, (error, body) => {
     if (error) {

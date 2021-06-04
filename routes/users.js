@@ -9,7 +9,9 @@ router.get('/:id', (req, res) => {
 
   //If cookie dosen't match url parameter, send an error menssage
   if (req.params.id !== req.cookies.user_id) {
-    res.status(401).send('You are not allowed! Please login first.');
+      const error = '401'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
   } else {
     userQueries.getAllPollByUserId(req.params.id)
       .then(user => {
@@ -37,7 +39,9 @@ router.get('/:id', (req, res) => {
         res.render("users.ejs", templateVars);
       })
       .catch(err => {
-        console.log("Error:", err);
+        const error = '500'
+        const templateVars = { error }
+        res.render("error.ejs", templateVars);
       });
   }
 });
@@ -47,7 +51,9 @@ router.get('/:id', (req, res) => {
 router.post('/:id', (req) => {
   userQueries.deletePoll(req.body.pollId)
     .catch(err => {
-      console.log("Error:", err);
+      const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
     });
 });
 

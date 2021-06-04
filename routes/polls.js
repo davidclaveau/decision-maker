@@ -52,15 +52,21 @@ router.get("/:poll_id/results", (req, res) => {
               res.render("../views/results.ejs", templateVars);
             })
             .catch((err) => {
-              console.log("Something Wrong Here 4", err);
+              const error = '500'
+              const templateVars = { error }
+              res.render("error.ejs", templateVars);
             });
         })
         .catch((err) => {
-          console.log("Something Wrong Here 3", err);
+          const error = '500'
+          const templateVars = { error }
+          res.render("error.ejs", templateVars);
         });
     })
     .catch((err) => {
-      console.log("Something Wrong Here 1", err);
+      const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
     });
 });
 
@@ -83,12 +89,16 @@ router.get("/:poll_id", (req, res) => {
         res.render("../views/poll.ejs", templateVar);
       })
       .catch((err) => {
-        console.log("err 5", err.message);
+        const error = '500'
+        const templateVars = { error }
+        res.render("error.ejs", templateVars);
       });
 
     })
     .catch((err) => {
-      console.log("err 6", err.message);
+      const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
     });
 });
 
@@ -109,7 +119,9 @@ router.post("/:poll_id", (req, res) => {
     pollQueries
       .postMyVotes(rankScore, parseInt(option), voterName)
       .catch((err) => {
-        console.log("err", err.message);
+        const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
       });
     rankScore++;
   }
@@ -128,7 +140,9 @@ router.post("/:poll_id", (req, res) => {
       res.end;
     })
     .catch((err) => {
-      console.log("Error:", err);
+      const error = '500'
+      const templateVars = { error }
+      res.render("error.ejs", templateVars);
     });
   //sending back response! important!
   res.json({
