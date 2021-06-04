@@ -7,13 +7,13 @@ Decision Maker is a quick and easy way to create and share polls with your frien
 
 ---
 
-Create a poll with ease, and add as many options as you like. Don't like an options you've added? Delete it!
+Create a poll with ease and add as many options as you like. Don't like an option you've added? Delete it!
 ![](https://raw.githubusercontent.com/davidclaveau/decision-maker/master/public/img/create-a-poll.png)
 
-Once a poll is created, share the link with your friends! One link to bring users to the voting page - another link to see the results of the poll. The creator of the poll also receives an email using [Mailgun](https://www.mailgun.com/) with these two links.
+Once a poll is created, share the link with your friends! One link to bring users to the voting page - another link to see the results of the poll. The creator of the poll also receives an email using [Mailgun](https://www.mailgun.com/) with the same two links.
 ![](https://raw.githubusercontent.com/davidclaveau/decision-maker/master/public/img/share-a-poll.png)
 
-To vote for a poll, drag-and-drop your preferred order. Enter your name to submit the poll. Click the option to see the description (if provided)
+To vote for a poll use drag-and-drop for your preferred order. Enter your name to submit the poll. Click the option to see the description (if provided)
 ![](https://raw.githubusercontent.com/davidclaveau/decision-maker/master/public/img/choose-your-favourites.png)
 
 Users can only submit once!
